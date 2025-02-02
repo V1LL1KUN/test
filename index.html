@@ -401,6 +401,7 @@
         .roadmap-item:nth-child(even) {
             animation-delay: 0.5s;
         }
+
         /* Media Queries for Mobile and Tablet */
         @media (max-width: 768px) {
             body {
@@ -431,11 +432,9 @@
                 padding: 20px;
             }
             .section {
-                background-color: transparent; /* Убираем фон */
-                padding: 20px;
-                border-radius: 70px; /* Закругление углов */
-                box-shadow: none; /* Убираем тень */
+                padding: 25px;
                 margin-bottom: 30px;
+                border-radius: 30px;
             }
             .section h2 {
                 font-size: 1.8em;
@@ -443,14 +442,17 @@
             .chart-container {
                 height: 350px;
             }
-            .faq-section {
-                display: none; /* Убираем FAQ */
+            .faq-question {
+                font-size: 18px;
+                padding-left: 10px;
+            }
+            .faq-answer {
+                font-size: 16px;
+                padding-left: 10px;
             }
             .card {
                 padding: 15px;
-                border-radius: 70px; /* Закругление углов */
-                background-color: transparent; /* Убираем фон */
-                box-shadow: none; /* Убираем тень */
+                border-radius: 30px;
             }
             .card h3 {
                 font-size: 1.2em;
@@ -458,24 +460,35 @@
             .card p {
                 font-size: 16px;
             }
+            .roadmap-item {
+                width: 100%;
+            }
+            .roadmap-item:nth-child(odd) .roadmap-content,
+            .roadmap-item:nth-child(even) .roadmap-content {
+                margin-left: 0;
+                margin-right: 0;
+            }
             .roadmap-item::before {
-                display: none; /* Убираем фиолетовые точки */
+                left: 50%;
+                transform: translateX(-50%);
             }
-            .roadmap-content {
-                margin: 0 auto;
-                padding: 15px;
-                border-radius: 70px; /* Закругление углов */
-                background-color: transparent; /* Убираем фон */
-                box-shadow: none; /* Убираем тень */
+            .footer {
+                padding: 20px 0;
             }
-            .roadmap-content h3 {
-                font-size: 1.2em;
-                margin-bottom: 10px;
+            .social-icons a {
+                font-size: 1.5em;
             }
-            .roadmap-content p {
-                font-size: 14px;
+            /* Улучшение читаемости текста */
+            p {
+                font-size: 16px;
+                line-height: 1.8;
+            }
+            /* Улучшение отступов между секциями */
+            .section + .section {
+                margin-top: 20px;
             }
         }
+
         @media (max-width: 480px) {
             body {
                 font-size: 14px;
@@ -504,8 +517,9 @@
                 padding: 15px;
             }
             .section {
-                padding: 15px;
-                border-radius: 50px; /* Закругление углов */
+                padding: 20px;
+                margin-bottom: 20px;
+                border-radius: 20px;
             }
             .section h2 {
                 font-size: 1.6em;
@@ -513,15 +527,37 @@
             .chart-container {
                 height: 300px;
             }
+            .faq-question {
+                font-size: 16px;
+                padding-left: 8px;
+            }
+            .faq-answer {
+                font-size: 14px;
+                padding-left: 8px;
+            }
             .card {
                 padding: 10px;
-                border-radius: 50px; /* Закругление углов */
+                border-radius: 20px;
             }
             .card h3 {
                 font-size: 1em;
             }
             .card p {
                 font-size: 14px;
+            }
+            .footer {
+                padding: 15px 0;
+            }
+            .social-icons a {
+                font-size: 1.2em;
+            }
+            /* Дополнительные улучшения для маленьких экранов */
+            p {
+                font-size: 14px;
+                line-height: 1.6;
+            }
+            .section + .section {
+                margin-top: 15px;
             }
         }
     </style> 
@@ -727,17 +763,17 @@
     <section class="section faq-section">
         <h2 style="margin-left: 30px;">Frequently Asked Questions</h2>
         <div class="faq">
-            <div class="faq-question">⠀What is the purpose of the $PEACE Token? <i class="fas fa-chevron-down"></i></div>
+            <div class="faq-question">⠀What is the purpose of the $PEACE Token?</div>
             <div class="faq-answer">⠀The $PEACE Token aims to promote global peace and harmony by supporting initiatives that foster understanding and cooperation ⠀among nations.</div>
-            <div class="faq-question">⠀How can I purchase $PEACE Tokens? <i class="fas fa-chevron-down"></i></div>
+            <div class="faq-question">⠀How can I purchase $PEACE Tokens?</div>
             <div class="faq-answer">⠀You can purchase $PEACE Tokens through various cryptocurrency exchanges or directly from the project website.</div>
-            <div class="faq-question">⠀Is the $PEACE Token project transparent? <i class="fas fa-chevron-down"></i></div>
+            <div class="faq-question">⠀Is the $PEACE Token project transparent?</div>
             <div class="faq-answer">⠀Yes, we are committed to transparency and regularly publish updates on our progress and initiatives.</div>
-            <div class="faq-question">⠀On which blockchain is the $PEACE Token built? <i class="fas fa-chevron-down"></i></div>
+            <div class="faq-question">⠀On which blockchain is the $PEACE Token built?</div>
             <div class="faq-answer">⠀$PEACE Token is built on the Solana blockchain.</div>
-            <div class="faq-question">⠀Can I stake my $PEACE Tokens? <i class="fas fa-chevron-down"></i></div>
+            <div class="faq-question">⠀Can I stake my $PEACE Tokens?</div>
             <div class="faq-answer">⠀Yes, staking options will be available soon for holders of $PEACE Tokens.</div>
-            <div class="faq-question">⠀Where can I find more information about the project? <i class="fas fa-chevron-down"></i></div>
+            <div class="faq-question">⠀Where can I find more information about the project?</div>
             <div class="faq-answer">⠀Visit our official website or join our community channels for more details.</div>
         </div>
     </section>
@@ -793,22 +829,20 @@
     document.querySelectorAll('.faq-question').forEach(question => {
         question.addEventListener('click', () => {
             const currentAnswer = question.nextElementSibling;
-            const icon = question.querySelector('i');
             if (currentAnswer.classList.contains('open')) {
                 closeAllAnswers();
                 return;
             }
             closeAllAnswers();
             currentAnswer.classList.add('open');
-            icon.classList.add('rotate');
+            currentAnswer.style.maxHeight = currentAnswer.scrollHeight + 'px';
         });
     });
     function closeAllAnswers() {
         document.querySelectorAll('.faq-answer').forEach(answer => {
             if (answer.classList.contains('open')) {
                 answer.classList.remove('open');
-                const icon = answer.previousElementSibling.querySelector('i');
-                icon.classList.remove('rotate');
+                answer.style.maxHeight = null;
             }
         });
     }
@@ -817,25 +851,25 @@
         clearInterval(intervalId);
     }
     const logos = ['fab fa-bitcoin', 'fab fa-ethereum', 'fas fa-solar-panel'];
-const intervalId = setInterval(() => {
-    for (let i = 0; i < Math.floor(Math.random() * 30) + 40; i++) {
-        const logoClass = logos[Math.floor(Math.random() * logos.length)];
-        const floatingLogo = document.createElement('i');
-        floatingLogo.className = `${logoClass} floating-logo purple-icon`;
-        floatingLogo.style.left = `${Math.random() * 100}%`;
-        floatingLogo.style.top = `${Math.random() * 100}%`;
-        document.body.appendChild(floatingLogo);
-        setTimeout(() => {
-            floatingLogo.remove();
-        }, 2000); // Duration of the animation
-    }
-}, 100); // Interval between new icons appearing
-// Adding social media icons with rounded corners
-document.querySelectorAll('.social-icons a').forEach(item => {
-    item.style.borderRadius = '10px';
-    item.style.background = 'rgba(31, 31, 31, 0.8)';
-    item.style.margin = '0 10px';
-});
+    const intervalId = setInterval(() => {
+        for (let i = 0; i < Math.floor(Math.random() * 30) + 40; i++) {
+            const logoClass = logos[Math.floor(Math.random() * logos.length)];
+            const floatingLogo = document.createElement('i');
+            floatingLogo.className = `${logoClass} floating-logo purple-icon`;
+            floatingLogo.style.left = `${Math.random() * 100}%`;
+            floatingLogo.style.top = `${Math.random() * 100}%`;
+            document.body.appendChild(floatingLogo);
+            setTimeout(() => {
+                floatingLogo.remove();
+            }, 2000); // Duration of the animation
+        }
+    }, 100); // Interval between new icons appearing
+    // Adding social media icons with rounded corners
+    document.querySelectorAll('.social-icons a').forEach(item => {
+        item.style.borderRadius = '10px';
+        item.style.background = 'rgba(31, 31, 31, 0.8)';
+        item.style.margin = '0 10px';
+    });
 </script>
 </body>
 </html>
