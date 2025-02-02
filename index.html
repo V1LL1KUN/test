@@ -259,18 +259,18 @@
         /* Floating stars */
         .floating-star {
             position: absolute;
-            width: 8px;
-            height: 8px;
+            width: 10px;
+            height: 10px;
             background-color: #673AB7;
             border-radius: 50%;
-            opacity: 0.5;
+            opacity: 0.3;
             animation: floatInAndOut 2s infinite;
             pointer-events: none;
             z-index: 1;
         }
         @keyframes floatInAndOut {
             0% { opacity: 0; transform: scale(0); }
-            50% { opacity: 0.5; transform: scale(1); }
+            50% { opacity: 0.3; transform: scale(1); }
             100% { opacity: 0; transform: scale(0); }
         }
         /* Roadmap Styles */
@@ -375,6 +375,95 @@
         /* Media Queries for Mobile and Tablet */
         @media (max-width: 768px) {
             body {
+                font-size: 16px;
+            }
+            header h1 {
+                font-size: 2.5em;
+            }
+            header p {
+                font-size: 1.2em;
+            }
+            .hero-section h1 {
+                font-size: 3em;
+            }
+            .hero-section p {
+                font-size: 1.5em;
+            }
+            .cta-button {
+                padding: 12px 24px;
+                font-size: 16px;
+            }
+            .container {
+                padding: 24px;
+            }
+            .section {
+                padding: 24px;
+                margin-bottom: 40px;
+            }
+            .section h2 {
+                font-size: 2.2em;
+            }
+            .chart-container {
+                height: 450px;
+                border-radius: 20px;
+            }
+            .faq-section h2 {
+                margin-left: 0;
+            }
+            .faq-question {
+                font-size: 18px;
+                padding-left: 0;
+                margin-bottom: 8px;
+            }
+            .faq-answer {
+                font-size: 16px;
+                padding-left: 0;
+            }
+            .faq-answer.open {
+                max-height: 150px;
+            }
+            .faq-question:hover {
+                color: #e0e0e0;
+            }
+            .card {
+                padding: 18px;
+            }
+            .card h3 {
+                font-size: 1.4em;
+            }
+            .card p {
+                font-size: 16px;
+            }
+            .roadmap-item {
+                width: 100%;
+            }
+            .roadmap-item:nth-child(odd) .roadmap-content,
+            .roadmap-item:nth-child(even) .roadmap-content {
+                margin-left: 0;
+                margin-right: 0;
+            }
+            .roadmap-item::before {
+                display: none;
+            }
+            .footer {
+                padding: 12px 0;
+            }
+            .social-icons a {
+                font-size: 1.4em;
+            }
+            /* Удаление раздела Crypto Prices */
+            .crypto-prices {
+                display: none;
+            }
+            /* Оптимизация звездочек для мобильных устройств */
+            .floating-star {
+                width: 3px;
+                height: 3px;
+                opacity: 0.05;
+            }
+        }
+        @media (max-width: 480px) {
+            body {
                 font-size: 14px;
             }
             header h1 {
@@ -393,33 +482,21 @@
                 padding: 10px 20px;
                 font-size: 14px;
             }
-            .container {
-                padding: 20px;
-            }
             .section {
                 padding: 20px;
-                margin-bottom: 40px;
             }
             .section h2 {
                 font-size: 2em;
             }
             .chart-container {
-                height: 350px;
+                height: 400px;
+                border-radius: 15px;
             }
             .faq-question {
                 font-size: 16px;
-                padding-left: 0;
-                margin-bottom: 5px;
             }
             .faq-answer {
                 font-size: 14px;
-                padding-left: 0;
-            }
-            .faq-answer.open {
-                max-height: 150px;
-            }
-            .faq-question:hover {
-                color: #e0e0e0;
             }
             .card {
                 padding: 15px;
@@ -429,78 +506,6 @@
             }
             .card p {
                 font-size: 14px;
-            }
-            .roadmap-item {
-                width: 100%;
-            }
-            .roadmap-item:nth-child(odd) .roadmap-content,
-            .roadmap-item:nth-child(even) .roadmap-content {
-                margin-left: 0;
-                margin-right: 0;
-            }
-            .roadmap-item::before {
-                left: 50%;
-                transform: translateX(-50%);
-            }
-            .footer {
-                padding: 10px 0;
-            }
-            .social-icons a {
-                font-size: 1.2em;
-            }
-            /* Отключение плавающих звезд для мобильных устройств */
-            .floating-star {
-                display: none;
-            }
-            /* Удаление раздела Crypto Prices */
-            .crypto-prices {
-                display: none;
-            }
-        }
-        @media (max-width: 480px) {
-            body {
-                font-size: 12px;
-            }
-            header h1 {
-                font-size: 1.5em;
-            }
-            header p {
-                font-size: 0.9em;
-            }
-            .hero-section h1 {
-                font-size: 2em;
-            }
-            .hero-section p {
-                font-size: 1em;
-            }
-            .cta-button {
-                padding: 8px 16px;
-                font-size: 12px;
-            }
-            .section {
-                padding: 15px;
-            }
-            .section h2 {
-                font-size: 1.8em;
-            }
-            .chart-container {
-                height: 300px;
-            }
-            .faq-question {
-                font-size: 14px;
-                margin-bottom: 5px;
-            }
-            .faq-answer {
-                font-size: 12px;
-            }
-            .card {
-                padding: 10px;
-            }
-            .card h3 {
-                font-size: 1em;
-            }
-            .card p {
-                font-size: 12px;
             }
         }
     </style>
@@ -704,7 +709,7 @@
         </div>
     </section>
     <section class="section faq-section">
-        <h2 style="margin-left: 30px;">Frequently Asked Questions</h2>
+        <h2>Frequently Asked Questions</h2>
         <div class="faq">
             <div class="faq-question">What is the purpose of the $PEACE Token?</div>
             <div class="faq-answer">The $PEACE Token aims to promote global peace and harmony by supporting initiatives that foster understanding and cooperation among nations.</div>
@@ -796,7 +801,7 @@
             floatingStar.className = 'floating-star';
             floatingStar.style.left = `${Math.random() * 100}%`;
             floatingStar.style.top = `${Math.random() * 100}%`;
-            floatingStar.style.backgroundColor = `hsl(270, 50%, ${Math.random() * 30 + 50}%)`;
+            floatingStar.style.backgroundColor = `rgb(68, 27, 130)`;
             document.body.appendChild(floatingStar);
             setTimeout(() => {
                 floatingStar.remove();
