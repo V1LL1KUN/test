@@ -14,8 +14,9 @@
             margin: 0;
             padding: 0;
             line-height: 1.6;
+            border-radius: 50px;
             position: relative;
-            overflow-y: auto;
+            overflow-y: auto; /* Ensure scrollable page */
         }
         header {
             background-color: rgba(31, 31, 31, 0.8);
@@ -62,7 +63,7 @@
             color: #673AB7;
             margin-bottom: 20px;
         }
-        .token-info, .distribution, .features, .team, .faq-section, .card {
+        .token-info, .distribution, .features, .team, .faq-section, .card{
             background-color: rgba(31, 31, 31, 0.2);
             padding: 30px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -256,22 +257,63 @@
             0%, 100% { opacity: 0; bottom: -50px; }
             20%, 80% { opacity: 1; bottom: 20px; }
         }
-        /* Floating stars */
-        .floating-star {
+        /* Random icons in the background */
+        .floating-logo {
             position: absolute;
-            width: 10px;
-            height: 10px;
-            background-color: #673AB7;
-            border-radius: 50%;
-            opacity: 0.3;
-            animation: floatInAndOut 2s infinite;
-            pointer-events: none;
+            opacity: 0.1; /* Прозрачность */
+            animation: floatInAndOut 2s forwards;
+            pointer-events: none; /* Отключение взаимодействия */
             z-index: 1;
         }
+
         @keyframes floatInAndOut {
-            0% { opacity: 0; transform: scale(0); }
-            50% { opacity: 0.3; transform: scale(1); }
-            100% { opacity: 0; transform: scale(0); }
+            0% {
+                opacity: 0;
+                transform: scale(0);
+            }
+            25% {
+                opacity: 0.1;
+                transform: scale(1);
+            }
+            75% {
+                opacity: 0.1;
+                transform: scale(1);
+            }
+            100% {
+                opacity: 0;
+                transform: scale(0);
+            }
+        }
+        /* Pie Chart Animation */
+        @keyframes chartAppear {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        .animated-chart {
+            animation: chartAppear 2s forwards;
+        }
+        /* Custom Tooltip Styling */
+        .chartjs-tooltip {
+            opacity: 1;
+            position: absolute;
+            background: rgba(31, 31, 31, 0.8);
+            color: #e0e0e0;
+            border-radius: 10px;
+            pointer-events: none;
+            transition: all 0.3s ease;
+            padding: 10px;
+            font-size: 14px;
+            white-space: nowrap;
+        }
+        .chartjs-tooltip-key {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            margin-right: 10px;
         }
         /* Roadmap Styles */
         .roadmap {
@@ -378,95 +420,6 @@
                 font-size: 16px;
             }
             header h1 {
-                font-size: 2.5em;
-            }
-            header p {
-                font-size: 1.2em;
-            }
-            .hero-section h1 {
-                font-size: 3em;
-            }
-            .hero-section p {
-                font-size: 1.5em;
-            }
-            .cta-button {
-                padding: 12px 24px;
-                font-size: 16px;
-            }
-            .container {
-                padding: 24px;
-            }
-            .section {
-                padding: 24px;
-                margin-bottom: 40px;
-            }
-            .section h2 {
-                font-size: 2.2em;
-            }
-            .chart-container {
-                height: 450px;
-                border-radius: 20px;
-            }
-            .faq-section h2 {
-                margin-left: 0;
-            }
-            .faq-question {
-                font-size: 18px;
-                padding-left: 0;
-                margin-bottom: 8px;
-            }
-            .faq-answer {
-                font-size: 16px;
-                padding-left: 0;
-            }
-            .faq-answer.open {
-                max-height: 150px;
-            }
-            .faq-question:hover {
-                color: #e0e0e0;
-            }
-            .card {
-                padding: 18px;
-            }
-            .card h3 {
-                font-size: 1.4em;
-            }
-            .card p {
-                font-size: 16px;
-            }
-            .roadmap-item {
-                width: 100%;
-            }
-            .roadmap-item:nth-child(odd) .roadmap-content,
-            .roadmap-item:nth-child(even) .roadmap-content {
-                margin-left: 0;
-                margin-right: 0;
-            }
-            .roadmap-item::before {
-                display: none;
-            }
-            .footer {
-                padding: 12px 0;
-            }
-            .social-icons a {
-                font-size: 1.4em;
-            }
-            /* Удаление раздела Crypto Prices */
-            .crypto-prices {
-                display: none;
-            }
-            /* Оптимизация звездочек для мобильных устройств */
-            .floating-star {
-                width: 3px;
-                height: 3px;
-                opacity: 0.05;
-            }
-        }
-        @media (max-width: 480px) {
-            body {
-                font-size: 14px;
-            }
-            header h1 {
                 font-size: 2em;
             }
             header p {
@@ -482,18 +435,22 @@
                 padding: 10px 20px;
                 font-size: 14px;
             }
+            .container {
+                padding: 20px;
+            }
             .section {
                 padding: 20px;
+                margin-bottom: 40px;
             }
             .section h2 {
                 font-size: 2em;
             }
             .chart-container {
-                height: 400px;
-                border-radius: 15px;
+                height: 600px; /* Increased size for mobile devices */
             }
             .faq-question {
                 font-size: 16px;
+                margin-bottom: 5px; /* Reduced spacing between questions */
             }
             .faq-answer {
                 font-size: 14px;
@@ -506,6 +463,90 @@
             }
             .card p {
                 font-size: 14px;
+            }
+            .roadmap-item {
+                width: 100%;
+            }
+            .roadmap-item:nth-child(odd) .roadmap-content,
+            .roadmap-item:nth-child(even) .roadmap-content {
+                margin-left: 0;
+                margin-right: 0;
+            }
+            .roadmap-item::before {
+                display: none; /* Remove purple dots in roadmap */
+            }
+            .footer {
+                padding: 10px 0;
+            }
+            .social-icons a {
+                font-size: 1.2em;
+            }
+            /* Hide Crypto Prices section on mobile */
+            .section.crypto-prices {
+                display: none;
+            }
+            /* Adjust FAQ section for mobile */
+            .faq-section h2 {
+                margin-left: 0; /* Remove empty space before title */
+            }
+            .faq-question {
+                margin-left: 0; /* Remove empty space before questions */
+            }
+            .faq-answer {
+                margin-left: 0; /* Remove empty space before answers */
+            }
+            /* Remove text selection highlight when closing FAQ */
+            .faq-question:active {
+                user-select: none;
+            }
+            /* Increase text size for better readability */
+            body {
+                font-size: 18px;
+            }
+        }
+        @media (max-width: 480px) {
+            body {
+                font-size: 14px;
+            }
+            header h1 {
+                font-size: 1.5em;
+            }
+            header p {
+                font-size: 0.9em;
+            }
+            .hero-section h1 {
+                font-size: 2em;
+            }
+            .hero-section p {
+                font-size: 1em;
+            }
+            .cta-button {
+                padding: 8px 16px;
+                font-size: 12px;
+            }
+            .section {
+                padding: 15px;
+            }
+            .section h2 {
+                font-size: 1.8em;
+            }
+            .chart-container {
+                height: 600px; /* Increased size for small screens */
+            }
+            .faq-question {
+                font-size: 14px;
+            }
+            .faq-answer {
+                font-size: 12px;
+            }
+            .card {
+                padding: 10px;
+            }
+            .card h3 {
+                font-size: 1em;
+            }
+            .card p {
+                font-size: 12px;
             }
         }
     </style>
@@ -544,11 +585,11 @@
                         datasets: [{
                             label: 'Token Distribution',
                             data: [30, 25, 20, 15, 10],
-                            backgroundColor: ['#4B0082', '#6A0DAD', '#8A2BE2', '#a44aed', '#ad56f5'],
-                            borderColor: '#121212',
+                            backgroundColor: ['#4B0082', '#6A0DAD', '#8A2BE2', '#a44aed', '#ad56f5'], // Darker purples, more shades
+                            borderColor: '#121212', // Dark background color
                             borderWidth: 0,
                             hoverBackgroundColor: ['#590099', '#7A00C2', '#9A33E5', '#b44efc', '#b971f5'],
-                            hoverBorderColor: 'transparent',
+                            hoverBorderColor: 'transparent', // No border on hover
                             borderRadius: 50
                         }]
                     },
@@ -562,7 +603,7 @@
                                 enabled: true,
                                 callbacks: {
                                     label: function(context) {
-                                        let label = '';
+                                        let label =  '';
                                         if (label) {
                                             label += ': ';
                                         }
@@ -794,20 +835,20 @@
             }
         });
     }
-    // Floating stars
+    const logos = ['fab fa-bitcoin', 'fab fa-ethereum', 'fas fa-solar-panel'];
     const intervalId = setInterval(() => {
         for (let i = 0; i < Math.floor(Math.random() * 30) + 40; i++) {
-            const floatingStar = document.createElement('div');
-            floatingStar.className = 'floating-star';
-            floatingStar.style.left = `${Math.random() * 100}%`;
-            floatingStar.style.top = `${Math.random() * 100}%`;
-            floatingStar.style.backgroundColor = `rgb(68, 27, 130)`;
-            document.body.appendChild(floatingStar);
+            const logoClass = logos[Math.floor(Math.random() * logos.length)];
+            const floatingLogo = document.createElement('i');
+            floatingLogo.className = `${logoClass} purple-icon floating-logo`; // Добавляем класс floating-logo
+            floatingLogo.style.left = `${Math.random() * 100}%`;
+            floatingLogo.style.top = `${Math.random() * 100}%`;
+            document.body.appendChild(floatingLogo);
             setTimeout(() => {
-                floatingStar.remove();
-            }, 2000);
+                floatingLogo.remove();
+            }, 2000); // Продолжительность анимации
         }
-    }, 100);
+    }, 100); // Интервал между появлением новых иконок
     // Adding social media icons with rounded corners
     document.querySelectorAll('.social-icons a').forEach(item => {
         item.style.borderRadius = '10px';
