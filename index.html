@@ -903,5 +903,26 @@
         clearInterval(intervalId);
     }
     const logos = ['fab fa-bitcoin', 'fab fa-ethereum', 'fas fa-solar-panel'];
-    const intervalId = setInterval(() => {
-        for (let i = 0; i < Math.floor(Math.random() * 3
+const intervalId = setInterval(() => {
+    for (let i = 0; i < Math.floor(Math.random() * 30) + 40; i++) {
+        const logoClass = logos[Math.floor(Math.random() * logos.length)];
+        const floatingLogo = document.createElement('i');
+        floatingLogo.className = `${logoClass} floating-logo purple-icon`;
+        floatingLogo.style.left = `${Math.random() * 100}%`;
+        floatingLogo.style.top = `${Math.random() * 100}%`;
+        document.body.appendChild(floatingLogo);
+        setTimeout(() => {
+            floatingLogo.remove();
+        }, 2000); // Duration of the animation
+    }
+}, 100); // Interval between new icons appearing
+
+// Adding social media icons with rounded corners
+document.querySelectorAll('.social-icons a').forEach(item => {
+    item.style.borderRadius = '10px';
+    item.style.background = 'rgba(31, 31, 31, 0.8)';
+    item.style.margin = '0 10px';
+});
+</script>
+</body>
+</html>
