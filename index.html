@@ -26,7 +26,6 @@
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
             border-radius: 50px;
             position: relative;
-            z-index: 2;
         }
         header h1 {
             font-size: 3em;
@@ -112,30 +111,6 @@
         }
         .purple-icon:hover {
             color: #311B92;
-        }
-        .crypto-prices {
-            background-color: rgba(31, 31, 31, 0.2);
-            color: #e0e0e0;
-            padding: 40px 0;
-            text-align: center;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            border-radius: 50px;
-            position: relative;
-            z-index: 2;
-            margin: 20px;
-        }
-        .crypto-price-item {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        .crypto-price-item:hover {
-            transform: translateY(-5px);
-        }
-        .crypto-price-item i {
-            font-size: 2em;
-            margin-bottom: 10px;
         }
         /* Additional styles for modern look */
         .hero-section {
@@ -265,7 +240,6 @@
             pointer-events: none; /* Отключение взаимодействия */
             z-index: 1;
         }
-
         @keyframes floatInAndOut {
             0% {
                 opacity: 0;
@@ -549,26 +523,79 @@
                 font-size: 12px;
             }
         }
+        /* Language Switcher */
+        .language-switcher {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            cursor: pointer;
+        }
+        .language-switcher .current-flag {
+            font-size: 1.5em;
+            transition: opacity 0.3s ease;
+        }
+        .language-switcher .dropdown {
+            display: none;
+            flex-direction: column;
+            align-items: flex-end;
+            margin-top: 10px;
+            background-color: rgba(31, 31, 31, 0.8);
+            border-radius: 60px;
+            padding: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+            animation: fadeIn 0.3s ease-in-out;
+        }
+        .language-switcher .dropdown.open {
+            display: flex;
+        }
+        .language-switcher .dropdown div {
+            font-size: 1.5em;
+            margin: 5px 0;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+        .language-switcher .dropdown div:hover {
+            color: #673AB7;
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
     </style>
 </head>
 <body>
+<!-- Language Switcher -->
+<div class="language-switcher">
+    <div class="current-flag" id="current-flag">🇬🇧</div>
+    <div class="dropdown" id="language-dropdown"></div>
+</div>
+<!-- Hero Section -->
 <section class="hero-section">
     <div>
-        <h1>Join the $PEACE Movement</h1>
-        <p>Together, we can make the world a better place.</p>
-        <a href="#" class="cta-button">Get Started</a>
+        <h1 id="hero-title">Join the $PEACE Movement</h1>
+        <p id="hero-description">Together, we can make the world a better place.</p>
+        <a href="#" class="cta-button" id="cta-button">Get Started</a>
     </div>
 </section>
 <div class="container">
     <section class="section token-info">
-        <h2>About $PEACE Token</h2>
-        <p>The $PEACE Token was launched in honor of peace between Russia and Ukraine, aiming to promote the cessation of war and bring about global harmony. By purchasing $PEACE Token, you are contributing to a better future for everyone.</p>
-        <p><strong>Total Supply:</strong> 200,000,000 $PEACE</p>
-        <p><strong>Contract Address:</strong> <span id="contract-address" class="peace-token" onclick="copyToClipboard()">[Your Contract Address]</span></p>
-        <p>In a world where conflict and division seem to be ever-present, every individual has the power to make a difference. The $PEACE Token symbolizes hope and unity. Every purchase contributes directly to initiatives that aim to end wars and foster global peace. With your support, we can take meaningful steps towards a brighter, more harmonious future.</p>
+        <h2 id="about-title">About $PEACE Token</h2>
+        <p id="about-description">The $PEACE Token was launched in honor of peace between Russia and Ukraine, aiming to promote the cessation of war and bring about global harmony. By purchasing $PEACE Token, you are contributing to a better future for everyone.</p>
+        <p><strong id="total-supply">Total Supply:</strong> 200,000,000 $PEACE</p>
+        <p><strong id="contract-address-label">Contract Address:</strong> <span id="contract-address" class="peace-token" onclick="copyToClipboard()">[Your Contract Address]</span></p>
+        <p id="additional-description">In a world where conflict and division seem to be ever-present, every individual has the power to make a difference. The $PEACE Token symbolizes hope and unity. Every purchase contributes directly to initiatives that aim to end wars and foster global peace. With your support, we can take meaningful steps towards a brighter, more harmonious future.</p>
     </section>
     <section class="section distribution" id="distribution-section">
-        <h2>Distribution</h2>
+        <h2 id="distribution-title">Distribution</h2>
         <div id="chart-container" class="chart-container">
             <canvas id="myChart"></canvas>
         </div>
@@ -666,110 +693,105 @@
         </script>
     </section>
     <section class="section roadmap">
-        <h2>Roadmap</h2>
+        <h2 id="roadmap-title">Roadmap</h2>
         <ul class="roadmap-timeline">
             <li class="roadmap-item">
                 <div class="roadmap-content">
-                    <h3>Private Presale</h3>
-                    <p>1-10 days: Initial presale for early supporters and investors.</p>
+                    <h3 id="private-presale-title">Private Presale</h3>
+                    <p id="private-presale-description">1-10 days: Initial presale for early supporters and investors.</p>
                 </div>
             </li>
             <li class="roadmap-item">
                 <div class="roadmap-content">
-                    <h3>Public Sale</h3>
-                    <p>11-20 days: Open sale for the general public.</p>
+                    <h3 id="public-sale-title">Public Sale</h3>
+                    <p id="public-sale-description">11-20 days: Open sale for the general public.</p>
                 </div>
             </li>
             <li class="roadmap-item">
                 <div class="roadmap-content">
-                    <h3>Listing on Exchanges</h3>
-                    <p>21-30 days: Listing on major cryptocurrency exchanges.</p>
+                    <h3 id="listing-title">Listing on Exchanges</h3>
+                    <p id="listing-description">21-30 days: Listing on major cryptocurrency exchanges.</p>
                 </div>
             </li>
             <li class="roadmap-item">
                 <div class="roadmap-content">
-                    <h3>Development Phase</h3>
-                    <p>31-60 days: Development of core features and partnerships.</p>
+                    <h3 id="development-phase-title">Development Phase</h3>
+                    <p id="development-phase-description">31-60 days: Development of core features and partnerships.</p>
                 </div>
             </li>
             <li class="roadmap-item">
                 <div class="roadmap-content">
-                    <h3>Launch Event</h3>
-                    <p>61-90 days: Grand launch event with community engagement.</p>
+                    <h3 id="launch-event-title">Launch Event</h3>
+                    <p id="launch-event-description">61-90 days: Grand launch event with community engagement.</p>
                 </div>
             </li>
         </ul>
     </section>
     <section class="section features">
-        <h2>Features</h2>
+        <h2 id="features-title">Features</h2>
         <div class="card">
             <i class="fas fa-globe-americas purple-icon"></i>
             <div class="card-content">
-                <h3>Peace Initiatives</h3>
-                <p>A portion of funds raised will be donated to organizations promoting peace and conflict resolution.</p>
+                <h3 id="peace-initiatives-title">Peace Initiatives</h3>
+                <p id="peace-initiatives-description">A portion of funds raised will be donated to organizations promoting peace and conflict resolution.</p>
             </div>
         </div>
         <div class="card">
             <i class="fas fa-trophy purple-icon"></i>
             <div class="card-content">
-                <h3>Rewards Program</h3>
-                <p>Holders of $PEACE Token receive rewards based on their holdings, encouraging long-term investment.</p>
+                <h3 id="rewards-program-title">Rewards Program</h3>
+                <p id="rewards-program-description">Holders of $PEACE Token receive rewards based on their holdings, encouraging long-term investment.</p>
             </div>
         </div>
         <div class="card">
             <i class="fas fa-users purple-icon"></i>
             <div class="card-content">
-                <h3>Exclusive Access</h3>
-                <p>Token holders have exclusive access to events and communities focused on peace and global unity.</p>
+                <h3 id="exclusive-access-title">Exclusive Access</h3>
+                <p id="exclusive-access-description">Token holders have exclusive access to events and communities focused on peace and global unity.</p>
             </div>
         </div>
         <div class="card">
             <i class="fas fa-comments purple-icon"></i>
             <div class="card-content">
-                <h3>Community Engagement</h3>
-                <p>We host regular webinars and workshops aimed at fostering dialogue and understanding among cultures.</p>
+                <h3 id="community-engagement-title">Community Engagement</h3>
+                <p id="community-engagement-description">We host regular webinars and workshops aimed at fostering dialogue and understanding among cultures.</p>
             </div>
         </div>
         <div class="card">
             <i class="fas fa-balance-scale purple-icon"></i>
             <div class="card-content">
-                <h3>Transparency</h3>
-                <p>Our operations are fully transparent, ensuring contributions are utilized effectively towards peace-building goals.</p>
+                <h3 id="transparency-title">Transparency</h3>
+                <p id="transparency-description">Our operations are fully transparent, ensuring contributions are utilized effectively towards peace-building goals.</p>
             </div>
         </div>
     </section>
     <section class="section team">
-        <h2>Our Team</h2>
-        <p>The $PEACE Token project was founded by two friends, one from Russia and the other from Ukraine. They met during a cultural exchange program and quickly became close friends, sharing a common vision for a peaceful world. Despite political tensions and separation, they continued to communicate daily, dreaming of a future where people from all nations could live in harmony. Their friendship inspired them to create the $PEACE Token, a symbol of hope and unity in adversity. With your support, they aim to turn this dream into reality, bringing peace and prosperity to communities globally.</p>
-        <p>We have a diverse and dedicated team of professionals passionate about peace. From blockchain developers to peace activists, each member brings unique skills and experiences. Together, we work tirelessly to ensure the $PEACE Token project achieves its full potential and makes a lasting impact on the world.</p>
-    </section>
-    <section class="section crypto-prices">
-        <h2 style="margin-left: 0;">Crypto Prices</h2>
-        <div id="crypto-prices" class="crypto-prices">
-            <!-- Crypto prices will be inserted here -->
-        </div>
+        <h2 id="team-title">Our Team</h2>
+        <p id="team-description">The $PEACE Token project was founded by two friends, one from Russia and the other from Ukraine. They met during a cultural exchange program and quickly became close friends, sharing a common vision for a peaceful world. Despite political tensions and separation, they continued to communicate daily, dreaming of a future where people from all nations could live in harmony. Their friendship inspired them to create the $PEACE Token, a symbol of hope and unity in adversity. With your support, they aim to turn this dream into reality, bringing peace and prosperity to communities globally.</p>
+        <p id="team-additional-description">We have a diverse and dedicated team of professionals passionate about peace. From blockchain developers to peace activists, each member brings unique skills and experiences. Together, we work tirelessly to ensure the $PEACE Token project achieves its full potential and makes a lasting impact on the world.</p>
     </section>
     <section class="section faq-section">
-        <h2>Frequently Asked Questions</h2>
+        <h2 id="faq-title">Frequently Asked Questions</h2>
         <div class="faq">
-            <div class="faq-question">What is the purpose of the $PEACE Token?</div>
-            <div class="faq-answer">The $PEACE Token aims to promote global peace and harmony by supporting initiatives that foster understanding and cooperation among nations.</div>
-            <div class="faq-question">How can I purchase $PEACE Tokens?</div>
-            <div class="faq-answer">You can purchase $PEACE Tokens through various cryptocurrency exchanges or directly from the project website.</div>
-            <div class="faq-question">Is the $PEACE Token project transparent?</div>
-            <div class="faq-answer">Yes, we are committed to transparency and regularly publish updates on our progress and initiatives.</div>
-            <div class="faq-question">On which blockchain is the $PEACE Token built?</div>
-            <div class="faq-answer">$PEACE Token is built on the Solana blockchain.</div>
-            <div class="faq-question">Can I stake my $PEACE Tokens?</div>
-            <div class="faq-answer">Yes, staking options will be available soon for holders of $PEACE Tokens.</div>
-            <div class="faq-question">Where can I find more information about the project?</div>
-            <div class="faq-answer">Visit our official website or join our community channels for more details.</div>
+            <div class="faq-question" id="faq-purpose">What is the purpose of the $PEACE Token?</div>
+            <div class="faq-answer" id="faq-purpose-answer">The $PEACE Token aims to promote global peace and harmony by supporting initiatives that foster understanding and cooperation among nations.</div>
+            <div class="faq-question" id="faq-purchase">How can I purchase $PEACE Tokens?</div>
+            <div class="faq-answer" id="faq-purchase-answer">You can purchase $PEACE Tokens through various cryptocurrency exchanges or directly from the project website.</div>
+            <div class="faq-question" id="faq-transparency">Is the $PEACE Token project transparent?</div>
+            <div class="faq-answer" id="faq-transparency-answer">Yes, we are committed to transparency and regularly publish updates on our progress and initiatives.</div>
+            <div class="faq-question" id="faq-blockchain">On which blockchain is the $PEACE Token built?</div>
+            <div class="faq-answer" id="faq-blockchain-answer">$PEACE Token is built on the Solana blockchain.</div>
+            <div class="faq-question" id="faq-staking">Can I stake my $PEACE Tokens?</div>
+            <div class="faq-answer" id="faq-staking-answer">Yes, staking options will be available soon for holders of $PEACE Tokens.</div>
+            <div class="faq-question" id="faq-more-info">Where can I find more information about the project?</div>
+            <div class="faq-answer" id="faq-more-info-answer">Visit our official website or join our community channels for more details.</div>
         </div>
     </section>
 </div>
 <footer class="footer">
-    <p>&copy; 2025 $PEACE Token. All rights reserved.</p>
-    <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a>
+    <p id="footer-copyright">&copy; 2025 $PEACE Token. All rights reserved.</p>
+    <a href="#" id="privacy-policy-link">Privacy Policy</a> |
+    <a href="#" id="terms-of-service-link">Terms of Service</a>
     <div class="social-icons" style="margin-top: 20px;">
         <a href="#" class="purple-icon" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
         <a href="#" class="purple-icon" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
@@ -780,6 +802,208 @@
 </footer>
 <div id="notification"><i class="fas fa-check-circle"></i> Text copied!</div>
 <script>
+    const translations = {
+        en: {
+            "hero-title": "Join the $PEACE Movement",
+            "hero-description": "Together, we can make the world a better place.",
+            "cta-button": "Get Started",
+            "about-title": "About $PEACE Token",
+            "about-description": "The $PEACE Token was launched in honor of peace between Russia and Ukraine, aiming to promote the cessation of war and bring about global harmony. By purchasing $PEACE Token, you are contributing to a better future for everyone.",
+            "total-supply": "Total Supply:",
+            "contract-address-label": "Contract Address:",
+            "additional-description": "In a world where conflict and division seem to be ever-present, every individual has the power to make a difference. The $PEACE Token symbolizes hope and unity. Every purchase contributes directly to initiatives that aim to end wars and foster global peace. With your support, we can take meaningful steps towards a brighter, more harmonious future.",
+            "distribution-title": "Distribution",
+            "roadmap-title": "Roadmap",
+            "features-title": "Features",
+            "team-title": "Our Team",
+            "team-description": "The $PEACE Token project was founded by two friends, one from Russia and the other from Ukraine. They met during a cultural exchange program and quickly became close friends, sharing a common vision for a peaceful world. Despite political tensions and separation, they continued to communicate daily, dreaming of a future where people from all nations could live in harmony. Their friendship inspired them to create the $PEACE Token, a symbol of hope and unity in adversity. With your support, they aim to turn this dream into reality, bringing peace and prosperity to communities globally.",
+            "team-additional-description": "We have a diverse and dedicated team of professionals passionate about peace. From blockchain developers to peace activists, each member brings unique skills and experiences. Together, we work tirelessly to ensure the $PEACE Token project achieves its full potential and makes a lasting impact on the world.",
+            "faq-title": "Frequently Asked Questions",
+            "faq-purpose": "What is the purpose of the $PEACE Token?",
+            "faq-purpose-answer": "The $PEACE Token aims to promote global peace and harmony by supporting initiatives that foster understanding and cooperation among nations.",
+            "faq-purchase": "How can I purchase $PEACE Tokens?",
+            "faq-purchase-answer": "You can purchase $PEACE Tokens through various cryptocurrency exchanges or directly from the project website.",
+            "faq-transparency": "Is the $PEACE Token project transparent?",
+            "faq-transparency-answer": "Yes, we are committed to transparency and regularly publish updates on our progress and initiatives.",
+            "faq-blockchain": "On which blockchain is the $PEACE Token built?",
+            "faq-blockchain-answer": "$PEACE Token is built on the Solana blockchain.",
+            "faq-staking": "Can I stake my $PEACE Tokens?",
+            "faq-staking-answer": "Yes, staking options will be available soon for holders of $PEACE Tokens.",
+            "faq-more-info": "Where can I find more information about the project?",
+            "faq-more-info-answer": "Visit our official website or join our community channels for more details.",
+            "private-presale-title": "Private Presale",
+            "private-presale-description": "1-10 days: Initial presale for early supporters and investors.",
+            "public-sale-title": "Public Sale",
+            "public-sale-description": "11-20 days: Open sale for the general public.",
+            "listing-title": "Listing on Exchanges",
+            "listing-description": "21-30 days: Listing on major cryptocurrency exchanges.",
+            "development-phase-title": "Development Phase",
+            "development-phase-description": "31-60 days: Development of core features and partnerships.",
+            "launch-event-title": "Launch Event",
+            "launch-event-description": "61-90 days: Grand launch event with community engagement.",
+            "peace-initiatives-title": "Peace Initiatives",
+            "peace-initiatives-description": "A portion of funds raised will be donated to organizations promoting peace and conflict resolution.",
+            "rewards-program-title": "Rewards Program",
+            "rewards-program-description": "Holders of $PEACE Token receive rewards based on their holdings, encouraging long-term investment.",
+            "exclusive-access-title": "Exclusive Access",
+            "exclusive-access-description": "Token holders have exclusive access to events and communities focused on peace and global unity.",
+            "community-engagement-title": "Community Engagement",
+            "community-engagement-description": "We host regular webinars and workshops aimed at fostering dialogue and understanding among cultures.",
+            "transparency-title": "Transparency",
+            "transparency-description": "Our operations are fully transparent, ensuring contributions are utilized effectively towards peace-building goals.",
+            "footer-copyright": "© 2025 $PEACE Token. All rights reserved.",
+            "privacy-policy-link": "Privacy Policy",
+            "terms-of-service-link": "Terms of Service"
+        },
+        ru: {
+            "hero-title": "Присоединяйтесь к движению $PEACE",
+            "hero-description": "Вместе мы можем сделать мир лучше.",
+            "cta-button": "Начать",
+            "about-title": "О токене $PEACE",
+            "about-description": "Токен $PEACE был запущен в честь мира между Россией и Украиной, направлен на прекращение войны и достижение глобальной гармонии. Покупая токен $PEACE, вы вносите вклад в лучшее будущее для всех.",
+            "total-supply": "Общее предложение:",
+            "contract-address-label": "Адрес контракта:",
+            "additional-description": "В мире, где конфликты и разделения кажутся постоянными, каждый человек может изменить ситуацию. Токен $PEACE символизирует надежду и единство. Каждая покупка напрямую способствует инициативам, направленным на прекращение войн и укрепление глобального мира. С вашей поддержкой мы можем сделать значимые шаги к более светлому и гармоничному будущему.",
+            "distribution-title": "Распределение",
+            "roadmap-title": "Дорожная карта",
+            "features-title": "Особенности",
+            "team-title": "Наша команда",
+            "team-description": "Проект $PEACE Token был основан двумя друзьями, один из России, другой из Украины. Они встретились во время программы культурного обмена и быстро стали близкими друзьями, разделяя общее видение мирного мира. Несмотря на политические напряжения и расстояния, они продолжали общаться ежедневно, мечтая о будущем, где люди со всего мира могли бы жить в гармонии. Их дружба вдохновила их создать токен $PEACE, символ надежды и единства в трудные времена. С вашей поддержкой они стремятся воплотить эту мечту в реальность, принося мир и процветание сообществам по всему миру.",
+            "team-additional-description": "У нас разносторонняя и преданная команда профессионалов, увлеченных идеей мира. От разработчиков блокчейна до активистов мира — каждый участник привносит уникальные навыки и опыт. Вместе мы неустанно работаем, чтобы проект $PEACE Token достиг своего полного потенциала и оказал длительное влияние на мир.",
+            "faq-title": "Часто задаваемые вопросы",
+            "faq-purpose": "Какова цель токена $PEACE?",
+            "faq-purpose-answer": "Токен $PEACE направлен на продвижение глобального мира и гармонии, поддерживая инициативы, которые способствуют взаимопониманию и сотрудничеству между народами.",
+            "faq-purchase": "Как я могу приобрести токены $PEACE?",
+            "faq-purchase-answer": "Вы можете приобрести токены $PEACE через различные криптовалютные биржи или непосредственно на сайте проекта.",
+            "faq-transparency": "Является ли проект $PEACE Token прозрачным?",
+            "faq-transparency-answer": "Да, мы стремимся к прозрачности и регулярно публикуем обновления о наших достижениях и инициативах.",
+            "faq-blockchain": "На каком блокчейне построен токен $PEACE?",
+            "faq-blockchain-answer": "Токен $PEACE построен на блокчейне Solana.",
+            "faq-staking": "Могу ли я стейкать свои токены $PEACE?",
+            "faq-staking-answer": "Да, в ближайшее время будут доступны опции стейкинга для держателей токенов $PEACE.",
+            "faq-more-info": "Где я могу найти больше информации о проекте?",
+            "faq-more-info-answer": "Посетите наш официальный сайт или присоединяйтесь к нашим сообществам для получения дополнительной информации.",
+            "private-presale-title": "Частная предпродажа",
+            "private-presale-description": "1-10 дней: Первоначальная предпродажа для ранних сторонников и инвесторов.",
+            "public-sale-title": "Публичная продажа",
+            "public-sale-description": "11-20 дней: Открытая продажа для широкой публики.",
+            "listing-title": "Листинг на биржах",
+            "listing-description": "21-30 дней: Листинг на крупных криптовалютных биржах.",
+            "development-phase-title": "Фаза разработки",
+            "development-phase-description": "31-60 дней: Разработка основных функций и партнерств.",
+            "launch-event-title": "Запуск проекта",
+            "launch-event-description": "61-90 дней: Грандиозное событие запуска с участием сообщества.",
+            "peace-initiatives-title": "Инициативы мира",
+            "peace-initiatives-description": "Часть собранных средств будет передана организациям, продвигающим мир и разрешение конфликтов.",
+            "rewards-program-title": "Программа вознаграждений",
+            "rewards-program-description": "Держатели токена $PEACE получают вознаграждения в зависимости от их холдингов, что стимулирует долгосрочные инвестиции.",
+            "exclusive-access-title": "Эксклюзивный доступ",
+            "exclusive-access-description": "Держатели токенов имеют эксклюзивный доступ к мероприятиям и сообществам, посвященным миру и глобальному единству.",
+            "community-engagement-title": "Вовлечение сообщества",
+            "community-engagement-description": "Мы проводим регулярные вебинары и мастер-классы, направленные на развитие диалога и взаимопонимания между культурами.",
+            "transparency-title": "Прозрачность",
+            "transparency-description": "Наши операции полностью прозрачны, что гарантирует эффективное использование средств для достижения целей построения мира.",
+            "footer-copyright": "© 2025 $PEACE Token. Все права защищены.",
+            "privacy-policy-link": "Политика конфиденциальности",
+            "terms-of-service-link": "Условия использования"
+        },
+        es: {
+            "hero-title": "Únete al movimiento $PEACE",
+            "hero-description": "Juntos podemos hacer del mundo un lugar mejor.",
+            "cta-button": "Comenzar",
+            "about-title": "Sobre el token $PEACE",
+            "about-description": "El token $PEACE se lanzó en honor a la paz entre Rusia y Ucrania, con el objetivo de promover el fin de la guerra y lograr una armonía global. Al comprar el token $PEACE, estás contribuyendo a un futuro mejor para todos.",
+            "total-supply": "Suministro total:",
+            "contract-address-label": "Dirección del contrato:",
+            "additional-description": "En un mundo donde los conflictos y las divisiones parecen estar siempre presentes, cada individuo tiene el poder de marcar la diferencia. El token $PEACE simboliza esperanza y unidad. Cada compra contribuye directamente a iniciativas que buscan poner fin a las guerras y fomentar la paz mundial. Con tu apoyo, podemos dar pasos significativos hacia un futuro más brillante y armonioso.",
+            "distribution-title": "Distribución",
+            "roadmap-title": "Hoja de ruta",
+            "features-title": "Características",
+            "team-title": "Nuestro equipo",
+            "team-description": "El proyecto $PEACE Token fue fundado por dos amigos, uno de Rusia y otro de Ucrania. Se conocieron durante un programa de intercambio cultural y rápidamente se hicieron amigos cercanos, compartiendo una visión común de un mundo pacífico. A pesar de las tensiones políticas y la separación, continuaron comunicándose diariamente, soñando con un futuro donde las personas de todas las naciones pudieran vivir en armonía. Su amistad los inspiró a crear el token $PEACE, un símbolo de esperanza y unidad en la adversidad. Con tu apoyo, esperan convertir este sueño en realidad, trayendo paz y prosperidad a comunidades en todo el mundo.",
+            "team-additional-description": "Tenemos un equipo diverso y dedicado de profesionales apasionados por la paz. Desde desarrolladores de blockchain hasta activistas de la paz, cada miembro aporta habilidades y experiencias únicas. Juntos, trabajamos incansablemente para asegurar que el proyecto $PEACE Token alcance su máximo potencial y tenga un impacto duradero en el mundo.",
+            "faq-title": "Preguntas frecuentes",
+            "faq-purpose": "¿Cuál es el propósito del token $PEACE?",
+            "faq-purpose-answer": "El token $PEACE tiene como objetivo promover la paz y la armonía global, apoyando iniciativas que fomenten la comprensión y la cooperación entre las naciones.",
+            "faq-purchase": "¿Cómo puedo comprar tokens $PEACE?",
+            "faq-purchase-answer": "Puedes comprar tokens $PEACE a través de varias exchanges de criptomonedas o directamente desde el sitio web del proyecto.",
+            "faq-transparency": "¿Es transparente el proyecto $PEACE Token?",
+            "faq-transparency-answer": "Sí, estamos comprometidos con la transparencia y publicamos regularmente actualizaciones sobre nuestro progreso e iniciativas.",
+            "faq-blockchain": "¿En qué blockchain está construido el token $PEACE?",
+            "faq-blockchain-answer": "El token $PEACE está construido en el blockchain de Solana.",
+            "faq-staking": "¿Puedo hacer staking con mis tokens $PEACE?",
+            "faq-staking-answer": "Sí, pronto estarán disponibles opciones de staking para los poseedores de tokens $PEACE.",
+            "faq-more-info": "¿Dónde puedo encontrar más información sobre el proyecto?",
+            "faq-more-info-answer": "Visita nuestro sitio web oficial o únete a nuestros canales comunitarios para más detalles.",
+            "private-presale-title": "Preventa privada",
+            "private-presale-description": "1-10 días: Preventa inicial para los primeros partidarios e inversores.",
+            "public-sale-title": "Venta pública",
+            "public-sale-description": "11-20 días: Venta abierta al público en general.",
+            "listing-title": "Listado en exchanges",
+            "listing-description": "21-30 días: Listado en exchanges criptográficas importantes.",
+            "development-phase-title": "Fase de desarrollo",
+            "development-phase-description": "31-60 días: Desarrollo de características principales y asociaciones.",
+            "launch-event-title": "Evento de lanzamiento",
+            "launch-event-description": "61-90 días: Gran evento de lanzamiento con participación comunitaria.",
+            "peace-initiatives-title": "Iniciativas de paz",
+            "peace-initiatives-description": "Una parte de los fondos recaudados se donará a organizaciones que promuevan la paz y la resolución de conflictos.",
+            "rewards-program-title": "Programa de recompensas",
+            "rewards-program-description": "Los poseedores del token $PEACE reciben recompensas basadas en sus tenencias, fomentando la inversión a largo plazo.",
+            "exclusive-access-title": "Acceso exclusivo",
+            "exclusive-access-description": "Los poseedores de tokens tienen acceso exclusivo a eventos y comunidades centradas en la paz y la unidad global.",
+            "community-engagement-title": "Compromiso comunitario",
+            "community-engagement-description": "Organizamos seminarios web y talleres regulares destinados a fomentar el diálogo y la comprensión entre culturas.",
+            "transparency-title": "Transparencia",
+            "transparency-description": "Nuestras operaciones son completamente transparentes, asegurando que las contribuciones se utilicen eficazmente para alcanzar los objetivos de construcción de paz.",
+            "footer-copyright": "© 2025 $PEACE Token. Todos los derechos reservados.",
+            "privacy-policy-link": "Política de privacidad",
+            "terms-of-service-link": "Términos de servicio"
+        }
+    };
+    let currentLanguage = "en";
+    document.getElementById("current-flag").addEventListener("click", () => {
+        const dropdown = document.getElementById("language-dropdown");
+        if (dropdown.classList.contains("open")) {
+            dropdown.classList.remove("open");
+        } else {
+            dropdown.classList.add("open");
+            updateDropdownFlags();
+        }
+    });
+    function updateDropdownFlags() {
+        const dropdown = document.getElementById("language-dropdown");
+        dropdown.innerHTML = "";
+        const languages = ["en", "ru", "es"];
+        languages.forEach(lang => {
+            if (lang !== currentLanguage) {
+                const flag = document.createElement("div");
+                flag.textContent = getFlagEmoji(lang);
+                flag.setAttribute("data-lang", lang);
+                flag.addEventListener("click", () => {
+                    translatePage(lang);
+                    document.getElementById("current-flag").textContent = getFlagEmoji(lang);
+                    dropdown.classList.remove("open");
+                });
+                dropdown.appendChild(flag);
+            }
+        });
+    }
+    function getFlagEmoji(lang) {
+        const flags = { en: "🇬🇧", ru: "🇷🇺", es: "🇪🇸" };
+        return flags[lang];
+    }
+    function translatePage(lang) {
+        currentLanguage = lang;
+        for (const key in translations[lang]) {
+            const element = document.getElementById(key);
+            if (element) {
+                element.textContent = translations[lang][key];
+            }
+        }
+    }
+    // Initialize with English by default
+    translatePage(currentLanguage);
+    // Copy to clipboard functionality
     function copyToClipboard() {
         const contractAddress = document.getElementById('contract-address').innerText;
         navigator.clipboard.writeText(contractAddress).then(() => {
@@ -792,29 +1016,7 @@
             console.error('Could not copy text: ', err);
         });
     }
-    async function fetchCryptoPrices() {
-        const response = await fetch('https://api.coingecko.com/api/v3/simple/price?ids=solana,bitcoin,ethereum&vs_currencies=usd');
-        const data = await response.json();
-        const solanaPrice = data.solana.usd.toFixed(2);
-        const bitcoinPrice = data.bitcoin.usd.toFixed(2);
-        const ethereumPrice = data.ethereum.usd.toFixed(2);
-        const cryptoPricesContainer = document.getElementById('crypto-prices');
-        cryptoPricesContainer.innerHTML = `
-        <div class="crypto-price-item">
-            <i class="fab fa-bitcoin purple-icon"></i>
-            <p>$${bitcoinPrice}</p>
-        </div>
-        <div class="crypto-price-item">
-            <i class="fab fa-ethereum purple-icon"></i>
-            <p>$${ethereumPrice}</p>
-        </div>
-        <div class="crypto-price-item">
-            <i class="fas fa-solar-panel purple-icon"></i>
-            <p>$${solanaPrice}</p>
-        </div>
-    `;
-    }
-    fetchCryptoPrices();
+    // FAQ functionality
     document.querySelectorAll('.faq-question').forEach(question => {
         question.addEventListener('click', () => {
             const currentAnswer = question.nextElementSibling;
@@ -835,6 +1037,7 @@
             }
         });
     }
+    // Floating logos animation
     const logos = ['fab fa-bitcoin', 'fab fa-ethereum', 'fas fa-solar-panel'];
     const intervalId = setInterval(() => {
         for (let i = 0; i < Math.floor(Math.random() * 30) + 40; i++) {
@@ -849,11 +1052,22 @@
             }, 2000); // Продолжительность анимации
         }
     }, 100); // Интервал между появлением новых иконок
-    // Adding social media icons with rounded corners
+    // Styling social media icons
     document.querySelectorAll('.social-icons a').forEach(item => {
         item.style.borderRadius = '10px';
         item.style.background = 'rgba(31, 31, 31, 0.8)';
         item.style.margin = '0 10px';
+        item.style.padding = '5px';
+        item.style.transition = 'background-color 0.3s ease';
+    });
+    // Hover effect for social media icons
+    document.querySelectorAll('.social-icons a').forEach(item => {
+        item.addEventListener('mouseenter', () => {
+            item.style.backgroundColor = '#673AB7';
+        });
+        item.addEventListener('mouseleave', () => {
+            item.style.backgroundColor = 'rgba(31, 31, 31, 0.8)';
+        });
     });
 </script>
 </body>
