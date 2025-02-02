@@ -170,17 +170,16 @@
         .cta-button:hover {
             background: #311B92;
         }
-        .faq-section {
-            padding: 50px 0;
-            padding-left: 40px;
-        }
+        /* FAQ Styles */
         .faq-question {
             font-weight: bold;
             margin-bottom: 10px;
             cursor: pointer;
             transition: color 0.3s ease;
-
+            padding-left: 20px; /* Добавляем отступ для стрелки */
+            position: relative; /* Для позиционирования иконки */
         }
+
         .faq-answer {
             opacity: 0;
             max-height: 0;
@@ -188,14 +187,26 @@
             transition: opacity 0.5s ease, max-height 0.5s ease;
             margin-bottom: 20px;
             color: #673AB7;
-
+            padding-left: 20px; /* Согласованность с вопросом */
         }
+
         .faq-answer.open {
             opacity: 1;
-            max-height: 200px; /* Adjust as needed */
+            max-height: 200px; /* Увеличьте значение, если ответы длинные */
         }
-        .faq-question:hover {
-            color: #311B92;
+
+        /* Иконка стрелки для вопроса */
+        .faq-question::before {
+            content: '▶'; /* Значок стрелки */
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            transition: transform 0.3s ease;
+        }
+
+        .faq-question.open::before {
+            transform: rotate(90deg); /* Поворачиваем стрелку при открытии */
         }
         .card {
             background: rgba(31, 31, 31, 0.2);
@@ -492,10 +503,6 @@
             }
             .faq-answer {
                 margin-left: 0; /* Remove empty space before answers */
-            }
-            /* Remove text selection highlight when closing FAQ */
-            .faq-question:active {
-                user-select: none;
             }
             /* Increase text size for better readability */
             body {
