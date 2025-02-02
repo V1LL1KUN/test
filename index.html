@@ -434,7 +434,7 @@
                 font-size: 2em;
             }
             .chart-container {
-                height: 300px;
+                height: 350px; /* Увеличенный размер графика для мобильных устройств */
             }
             .faq-question {
                 font-size: 16px;
@@ -469,6 +469,10 @@
             .social-icons a {
                 font-size: 1.2em;
             }
+            /* Отключение плавающих иконок для мобильных устройств */
+            .floating-logo {
+                display: none;
+            }
         }
 
         @media (max-width: 480px) {
@@ -498,7 +502,7 @@
                 font-size: 1.8em;
             }
             .chart-container {
-                height: 250px;
+                height: 300px; /* Увеличенный размер графика для маленьких экранов */
             }
             .faq-question {
                 font-size: 14px;
@@ -802,8 +806,12 @@
             }
         });
     }
+    // Убираем плавающие иконки для мобильных устройств
+    if (window.innerWidth <= 768) {
+        clearInterval(intervalId);
+    }
     const logos = ['fab fa-bitcoin', 'fab fa-ethereum', 'fas fa-solar-panel'];
-    setInterval(() => {
+    const intervalId = setInterval(() => {
         for (let i = 0; i < Math.floor(Math.random() * 30) + 40; i++) {
             const logoClass = logos[Math.floor(Math.random() * logos.length)];
             const floatingLogo = document.createElement('i');
