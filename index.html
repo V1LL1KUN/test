@@ -433,7 +433,7 @@
             .section {
                 padding: 25px;
                 margin-bottom: 30px;
-                border-radius: 60px;
+                border-radius: 30px;
             }
             .section h2 {
                 font-size: 1.8em;
@@ -451,7 +451,7 @@
             }
             .card {
                 padding: 15px;
-                border-radius: 70px;
+                border-radius: 30px;
             }
             .card h3 {
                 font-size: 1.2em;
@@ -473,7 +473,7 @@
             .roadmap-content {
                 margin: 0 auto;
                 padding: 15px;
-                border-radius: 70px;
+                border-radius: 20px;
                 background-color: rgba(31, 31, 31, 0.3);
                 box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             }
@@ -486,27 +486,49 @@
             }
             /* Улучшение FAQ */
             .faq-section {
-                padding: 15px 0;
+                padding: 30px 0;
             }
             .faq-question {
                 background-color: rgba(31, 31, 31, 0.3);
                 padding: 15px;
-                border-radius: 60px;
+                border-radius: 10px;
                 margin-bottom: 10px;
                 font-size: 16px;
                 color: #e0e0e0;
                 transition: background-color 0.3s ease;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
             }
             .faq-question:hover {
                 background-color: rgba(31, 31, 31, 0.5);
             }
+            .faq-question i {
+                font-size: 1.2em;
+                color: #673AB7;
+                transition: transform 0.3s ease;
+            }
+            .faq-question i.rotate {
+                transform: rotate(180deg);
+            }
             .faq-answer {
                 background-color: rgba(31, 31, 31, 0.2);
                 padding: 15px;
-                border-radius: 60px;
+                border-radius: 10px;
                 font-size: 14px;
                 color: #673AB7;
                 margin-bottom: 20px;
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.5s ease, padding 0.5s ease;
+            }
+            .faq-answer.open {
+                max-height: 200px; /* Adjust as needed */
+                padding: 15px;
+            }
+            /* Убираем секцию с ценами криптовалют */
+            .crypto-prices {
+                display: none;
             }
             /* Дополнительные улучшения для маленьких экранов */
             p {
@@ -791,17 +813,17 @@
     <section class="section faq-section">
         <h2 style="margin-left: 30px;">Frequently Asked Questions</h2>
         <div class="faq">
-            <div class="faq-question">⠀What is the purpose of the $PEACE Token?</div>
+            <div class="faq-question">⠀What is the purpose of the $PEACE Token? <i class="fas fa-chevron-down"></i></div>
             <div class="faq-answer">⠀The $PEACE Token aims to promote global peace and harmony by supporting initiatives that foster understanding and cooperation ⠀among nations.</div>
-            <div class="faq-question">⠀How can I purchase $PEACE Tokens?</div>
+            <div class="faq-question">⠀How can I purchase $PEACE Tokens? <i class="fas fa-chevron-down"></i></div>
             <div class="faq-answer">⠀You can purchase $PEACE Tokens through various cryptocurrency exchanges or directly from the project website.</div>
-            <div class="faq-question">⠀Is the $PEACE Token project transparent?</div>
+            <div class="faq-question">⠀Is the $PEACE Token project transparent? <i class="fas fa-chevron-down"></i></div>
             <div class="faq-answer">⠀Yes, we are committed to transparency and regularly publish updates on our progress and initiatives.</div>
-            <div class="faq-question">⠀On which blockchain is the $PEACE Token built?</div>
+            <div class="faq-question">⠀On which blockchain is the $PEACE Token built? <i class="fas fa-chevron-down"></i></div>
             <div class="faq-answer">⠀$PEACE Token is built on the Solana blockchain.</div>
-            <div class="faq-question">⠀Can I stake my $PEACE Tokens?</div>
+            <div class="faq-question">⠀Can I stake my $PEACE Tokens? <i class="fas fa-chevron-down"></i></div>
             <div class="faq-answer">⠀Yes, staking options will be available soon for holders of $PEACE Tokens.</div>
-            <div class="faq-question">⠀Where can I find more information about the project?</div>
+            <div class="faq-question">⠀Where can I find more information about the project? <i class="fas fa-chevron-down"></i></div>
             <div class="faq-answer">⠀Visit our official website or join our community channels for more details.</div>
         </div>
     </section>
@@ -857,20 +879,22 @@
     document.querySelectorAll('.faq-question').forEach(question => {
         question.addEventListener('click', () => {
             const currentAnswer = question.nextElementSibling;
+            const icon = question.querySelector('i');
             if (currentAnswer.classList.contains('open')) {
                 closeAllAnswers();
                 return;
             }
             closeAllAnswers();
             currentAnswer.classList.add('open');
-            currentAnswer.style.maxHeight = currentAnswer.scrollHeight + 'px';
+            icon.classList.add('rotate');
         });
     });
     function closeAllAnswers() {
         document.querySelectorAll('.faq-answer').forEach(answer => {
             if (answer.classList.contains('open')) {
                 answer.classList.remove('open');
-                answer.style.maxHeight = null;
+                const icon = answer.previousElementSibling.querySelector('i');
+                icon.classList.remove('rotate');
             }
         });
     }
@@ -880,24 +904,4 @@
     }
     const logos = ['fab fa-bitcoin', 'fab fa-ethereum', 'fas fa-solar-panel'];
     const intervalId = setInterval(() => {
-        for (let i = 0; i < Math.floor(Math.random() * 30) + 40; i++) {
-            const logoClass = logos[Math.floor(Math.random() * logos.length)];
-            const floatingLogo = document.createElement('i');
-            floatingLogo.className = `${logoClass} floating-logo purple-icon`;
-            floatingLogo.style.left = `${Math.random() * 100}%`;
-            floatingLogo.style.top = `${Math.random() * 100}%`;
-            document.body.appendChild(floatingLogo);
-            setTimeout(() => {
-                floatingLogo.remove();
-            }, 2000); // Duration of the animation
-        }
-    }, 100); // Interval between new icons appearing
-    // Adding social media icons with rounded corners
-    document.querySelectorAll('.social-icons a').forEach(item => {
-        item.style.borderRadius = '10px';
-        item.style.background = 'rgba(31, 31, 31, 0.8)';
-        item.style.margin = '0 10px';
-    });
-</script>
-</body>
-</html>
+        for (let i = 0; i < Math.floor(Math.random() * 3
