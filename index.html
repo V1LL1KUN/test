@@ -603,6 +603,13 @@
                 transform: translateY(0);
             }
         }
+        /* Запрещаем горизонтальный скроллинг */
+        html, body {
+            overflow-x: hidden; /* Убираем горизонтальную прокрутку */
+            max-width: 100%; /* Ограничиваем ширину контента */
+            margin: 0; /* Убираем отступы по умолчанию */
+            padding: 0; /* Убираем внутренние отступы */
+        }
     </style>
 </head>
 <body>
@@ -628,7 +635,12 @@
         <h2 id="about-title">About $PEACE Token</h2>
         <p id="about-description">The $PEACE Token was launched in honor of peace between Russia and Ukraine, aiming to promote the cessation of war and bring about global harmony. By purchasing $PEACE Token, you are contributing to a better future for everyone.</p>
         <p><strong id="total-supply">Total Supply:</strong> 200,000,000 $PEACE</p>
-        <p><strong id="contract-address-label">Contract Address:</strong> <span id="contract-address" class="peace-token" onclick="copyToClipboard()">orgdydMrCc6nXVpopDU86WBmkcNbRZJeXH8bcwqo1tp</span></p>
+        <p>
+            <strong id="contract-address-label">Contract Address:</strong>
+            <span id="contract-address" class="peace-token" onclick="copyToClipboard()" data-full-address="orgdydMrCc6nXVpopDU86WBmkcNbRZJeXH8bcwqo1tp">
+            orgdyd...NbRZJeXH8bcwqo1tp
+        </span>
+        </p>
         <p id="additional-description">In a world where conflict and division seem to be ever-present, every individual has the power to make a difference. The $PEACE Token symbolizes hope and unity. Every purchase contributes directly to initiatives that aim to end wars and foster global peace. With your support, we can take meaningful steps towards a brighter, more harmonious future.</p>
     </section>
     <section class="section distribution" id="distribution-section">
@@ -1072,8 +1084,9 @@
     translatePage(currentLanguage);
     // Copy to clipboard functionality
     function copyToClipboard() {
-        const contractAddress = document.getElementById('contract-address').innerText;
-        navigator.clipboard.writeText(contractAddress).then(() => {
+        const contractAddressElement = document.getElementById('contract-address');
+        const fullAddress = contractAddressElement.getAttribute('data-full-address'); // Получаем полный адрес
+        navigator.clipboard.writeText(fullAddress).then(() => {
             const notification = document.getElementById('notification');
             notification.style.display = 'block';
             setTimeout(() => {
