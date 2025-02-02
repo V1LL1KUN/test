@@ -405,18 +405,13 @@
         /* Media Queries for Mobile and Tablet */
         @media (max-width: 768px) {
             body {
-                font-size: 16px;
-                line-height: 1.8;
+                font-size: 14px;
             }
             header h1 {
-                font-size: 2.5em;
+                font-size: 2em;
             }
             header p {
-                font-size: 1.2em;
-            }
-            .hero-section {
-                height: auto;
-                padding: 40px 20px;
+                font-size: 1em;
             }
             .hero-section h1 {
                 font-size: 2.5em;
@@ -425,40 +420,36 @@
                 font-size: 1.2em;
             }
             .cta-button {
-                padding: 12px 24px;
-                font-size: 16px;
+                padding: 10px 20px;
+                font-size: 14px;
             }
             .container {
                 padding: 20px;
             }
             .section {
-                padding: 25px;
-                margin-bottom: 30px;
-                border-radius: 30px;
+                padding: 20px;
+                margin-bottom: 40px;
             }
             .section h2 {
-                font-size: 1.8em;
+                font-size: 2em;
             }
             .chart-container {
-                height: 350px;
+                height: 350px; /* Увеличенный размер графика для мобильных устройств */
             }
             .faq-question {
-                font-size: 18px;
-                padding-left: 10px;
+                font-size: 16px;
             }
             .faq-answer {
-                font-size: 16px;
-                padding-left: 10px;
+                font-size: 14px;
             }
             .card {
                 padding: 15px;
-                border-radius: 30px;
             }
             .card h3 {
                 font-size: 1.2em;
             }
             .card p {
-                font-size: 16px;
+                font-size: 14px;
             }
             .roadmap-item {
                 width: 100%;
@@ -473,35 +464,26 @@
                 transform: translateX(-50%);
             }
             .footer {
-                padding: 20px 0;
+                padding: 10px 0;
             }
             .social-icons a {
-                font-size: 1.5em;
+                font-size: 1.2em;
             }
-            /* Улучшение читаемости текста */
-            p {
-                font-size: 16px;
-                line-height: 1.8;
-            }
-            /* Улучшение отступов между секциями */
-            .section + .section {
-                margin-top: 20px;
+            /* Отключение плавающих иконок для мобильных устройств */
+            .floating-logo {
+                display: none;
             }
         }
 
         @media (max-width: 480px) {
             body {
-                font-size: 14px;
-                line-height: 1.6;
+                font-size: 12px;
             }
             header h1 {
-                font-size: 2em;
+                font-size: 1.5em;
             }
             header p {
-                font-size: 1em;
-            }
-            .hero-section {
-                padding: 30px 15px;
+                font-size: 0.9em;
             }
             .hero-section h1 {
                 font-size: 2em;
@@ -510,54 +492,32 @@
                 font-size: 1em;
             }
             .cta-button {
-                padding: 10px 20px;
-                font-size: 14px;
-            }
-            .container {
-                padding: 15px;
+                padding: 8px 16px;
+                font-size: 12px;
             }
             .section {
-                padding: 20px;
-                margin-bottom: 20px;
-                border-radius: 20px;
+                padding: 15px;
             }
             .section h2 {
-                font-size: 1.6em;
+                font-size: 1.8em;
             }
             .chart-container {
-                height: 300px;
+                height: 300px; /* Увеличенный размер графика для маленьких экранов */
             }
             .faq-question {
-                font-size: 16px;
-                padding-left: 8px;
+                font-size: 14px;
             }
             .faq-answer {
-                font-size: 14px;
-                padding-left: 8px;
+                font-size: 12px;
             }
             .card {
                 padding: 10px;
-                border-radius: 20px;
             }
             .card h3 {
                 font-size: 1em;
             }
             .card p {
-                font-size: 14px;
-            }
-            .footer {
-                padding: 15px 0;
-            }
-            .social-icons a {
-                font-size: 1.2em;
-            }
-            /* Дополнительные улучшения для маленьких экранов */
-            p {
-                font-size: 14px;
-                line-height: 1.6;
-            }
-            .section + .section {
-                margin-top: 15px;
+                font-size: 12px;
             }
         }
     </style> 
