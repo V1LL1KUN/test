@@ -180,6 +180,16 @@
             position: relative; /* Для позиционирования иконки */
         }
 
+        /* Подсветка при наведении */
+        .faq-question:hover {
+            color: #673AB7; /* Фиолетовый цвет */
+        }
+
+        /* Подсветка при открытии */
+        .faq-question.open {
+            color: #673AB7; /* Фиолетовый цвет */
+        }
+
         .faq-answer {
             opacity: 0;
             max-height: 0;
@@ -1232,6 +1242,18 @@
         // Инициализация перевода при загрузке страницы
         translatePage(currentLanguage);
     });
+    document.querySelectorAll('.faq-question').forEach(question => {
+        question.addEventListener('click', () => {
+            const currentAnswer = question.nextElementSibling;
+            });
+            if (currentAnswer.classList.contains('open')) {
+                currentAnswer.style.maxHeight = currentAnswer.scrollHeight + 'px'; // Устанавливаем высоту
+                question.classList.add('open'); // Добавляем класс open для подсветки
+            } else {
+                currentAnswer.style.maxHeight = null; // Сбрасываем высоту
+                question.classList.remove('open'); // Убираем класс open для подсветки
+            }
+        });
     // Styling social media icons
     document.querySelectorAll('.social-icons a').forEach(item => {
         item.style.borderRadius = '10px';
