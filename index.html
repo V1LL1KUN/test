@@ -1146,7 +1146,7 @@ function startFloatingLogos() {
     const logos = ['fab fa-bitcoin', 'fab fa-ethereum', 'fas fa-solar-panel'];
     intervalId = setInterval(() => {
         // Определяем количество иконок в зависимости от ширины экрана
-        const iconCount = window.innerWidth < 768 ? 0 : Math.floor(Math.random() * 30) + 5;
+        const iconCount = window.innerWidth < 768 ? 0 : Math.floor(Math.random() * 30) + 2.5;
 
         for (let i = 0; i < iconCount; i++) { // Исправленное условие
             const logoClass = logos[Math.floor(Math.random() * logos.length)];
