@@ -611,16 +611,6 @@
         .language-switcher .dropdown div:hover {
             color: #673AB7;
         }
-        
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(-10px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
             
         /* Media Queries for Mobile and Tablet */
         @media (max-width: 768px) {
@@ -772,6 +762,16 @@
                  left: -4.5px;
                  padding: 5px;
              }
+            
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
         /* Запрещаем горизонтальный скроллинг */
         html, body {
