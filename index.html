@@ -37,6 +37,54 @@
             font-size: 1.2em;
             margin: 10px 0 0;
         }
+        /* Звёздное небо */
+        .stars-container {
+            position: fixed; /* Или absolute, если хотите адаптировать под контент */
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh; /* Высота равна высоте экрана */
+            pointer-events: none; /* Отключаем взаимодействие */
+            z-index: -1; /* Фон должен быть за всем содержимым */
+        }
+
+        .star {
+            position: absolute;
+            background-color: rgba(103, 58, 183, 0.3); /* Фиолетовые звёзды */
+            border-radius: 50%; /* Круглая форма */
+            animation: twinkle 5s infinite ease-in-out; /* Мигание звёзд */
+            pointer-events: none;
+        }
+
+        @keyframes twinkle {
+            0% {
+                opacity: 0.3;
+                transform: scale(1);
+            }
+            50% {
+                opacity: 0.7;
+                transform: scale(1.2);
+            }
+            100% {
+                opacity: 0.3;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes twinkle {
+            0% {
+                opacity: 0.3;
+                transform: scale(1);
+            }
+            50% {
+                opacity: 0.7;
+                transform: scale(1.2);
+            }
+            100% {
+                opacity: 0.3;
+                transform: scale(1);
+            }
+        }
         .container {
             max-width: 1000px;
             margin: 0 auto;
@@ -51,6 +99,38 @@
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             position: relative;
             z-index: 2;
+        }
+        /* Контейнер для частиц */
+        .particles-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none; /* Отключаем взаимодействие */
+            z-index: -1; /* Фон должен быть за всем содержимым */
+            overflow: hidden;
+        }
+
+        /* Частицы */
+        .particle {
+            position: absolute;
+            background-color: rgba(103, 58, 183, 0.5); /* Фиолетовый цвет */
+            border-radius: 50%; /* Круглая форма */
+            animation: moveParticle 10s infinite ease-in-out; /* Анимация движения */
+            pointer-events: none;
+        }
+
+        @keyframes moveParticle {
+            0% {
+                transform: translateY(0) translateX(0);
+            }
+            50% {
+                transform: translateY(-50vh) translateX(50vw);
+            }
+            100% {
+                transform: translateY(0) translateX(0);
+            }
         }
         .section:hover {
             transform: translateY(-5px);
@@ -111,29 +191,6 @@
         }
         .purple-icon:hover {
             color: #311B92;
-        }
-        /* Toggle Background Icons Button */
-        .toggle-icons-button {
-            position: absolute;
-            top: 15px; /* Размещаем ниже флага */
-            right: 60px; /* Выравниваем по правому краю */
-            background-color: #121212; /* Темный фон */
-            color: #673AB7; /* Фиолетовый текст */
-            padding: 10px 20px;
-            border-radius: 50px; /* Круглые края */
-            border: 2px solid #673AB7; /* Фиолетовая рамка */
-            cursor: pointer;
-            font-size: 14px;
-            font-weight: bold;
-            text-align: center;
-            transition: all 0.3s ease; /* Плавные переходы */
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Тень */
-        }
-
-        .toggle-icons-button:hover {
-            background-color: #673AB7; /* Фон меняется на фиолетовый при наведении */
-            color: #e0e0e0; /* Белый текст */
-            border-color: #311B92; /* Темно-фиолетовая рамка */
         }
         /* Additional styles for modern look */
         .hero-section {
@@ -218,6 +275,29 @@
         .faq-question.open::before {
             transform: rotate(90deg); /* Поворачиваем стрелку при открытии */
         }
+        /* Геометрическая сетка */
+        .grid-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none; /* Отключаем взаимодействие */
+            z-index: -1; /* Фон должен быть за всем содержимым */
+            background: repeating-linear-gradient(
+                    90deg,
+                    rgba(255, 255, 255, 0.02), /* Светлые линии */
+                    rgba(255, 255, 255, 0.02) 1px,
+                    transparent 1px,
+                    transparent 20px
+            ), repeating-linear-gradient(
+                    0deg,
+                    rgba(255, 255, 255, 0.02), /* Светлые линии */
+                    rgba(255, 255, 255, 0.02) 1px,
+                    transparent 1px,
+                    transparent 20px
+            );
+        }
         .card {
             background: rgba(31, 31, 31, 0.2);
             padding: 20px;
@@ -276,32 +356,6 @@
         @keyframes fadeInOut {
             0%, 100% { opacity: 0; bottom: -50px; }
             20%, 80% { opacity: 1; bottom: 20px; }
-        }
-        /* Random icons in the background */
-        .floating-logo {
-            position: fixed;
-            opacity: 0.1; /* Прозрачность */
-            animation: floatInAndOut 2s forwards;
-            pointer-events: none; /* Отключение взаимодействия */
-            z-index: 1;
-        }
-        @keyframes floatInAndOut {
-            0% {
-                opacity: 0;
-                transform: scale(0);
-            }
-            25% {
-                opacity: 0.1;
-                transform: scale(1);
-            }
-            75% {
-                opacity: 0.1;
-                transform: scale(1);
-            }
-            100% {
-                opacity: 0;
-                transform: scale(0);
-            }
         }
         /* Pie Chart Animation */
         @keyframes chartAppear {
@@ -504,9 +558,6 @@
             .section.crypto-prices {
                 display: none;
             }
-            .toggle-icons-button {
-                display: none;
-            }
             /* Adjust FAQ section for mobile */
             .faq-section h2 {
                 margin-left: 0; /* Remove empty space before title */
@@ -633,14 +684,11 @@
     </style>
 </head>
 <body>
+<div class="particles-container"></div>
 <!-- Language Switcher -->
 <div class="language-switcher">
     <div class="current-flag" id="current-flag">🇬🇧</div>
     <div class="dropdown" id="language-dropdown"></div>
-</div>
-<!-- Toggle Background Icons Button -->
-<div class="toggle-icons-button" id="toggle-icons-button">
-    <span id="toggle-icons-text">Disable Objects</span>
 </div>
 <!-- Hero Section -->
 <section class="hero-section">
@@ -761,6 +809,38 @@
             });
         </script>
     </section>
+    <div class="grid-background"></div>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const particlesContainer = document.createElement("div");
+            particlesContainer.className = "particles-container";
+            document.body.appendChild(particlesContainer);
+
+            function createParticles(count) {
+                for (let i = 0; i < count; i++) {
+                    const particle = document.createElement("div");
+                    particle.className = "particle";
+
+                    // Случайные координаты
+                    particle.style.left = `${Math.random() * 100}%`;
+                    particle.style.top = `${Math.random() * 100}%`;
+
+                    // Случайный размер
+                    const size = Math.random() * 3 + 2;
+                    particle.style.width = `${size}px`;
+                    particle.style.height = `${size}px`;
+
+                    // Случайная анимационная задержка
+                    particle.style.animationDelay = `${Math.random() * 5}s`;
+
+                    particlesContainer.appendChild(particle);
+                }
+            }
+
+            // Создаём 50 частиц
+            createParticles(50);
+        });
+    </script>
     <section class="section roadmap">
         <h2 id="roadmap-title">Roadmap</h2>
         <ul class="roadmap-timeline">
@@ -1137,66 +1217,6 @@
             }
         });
     }
-    // Глобальные переменные
-    let intervalId = null; // Для хранения ID интервала
-    let iconsEnabled = true; // Состояние иконок (по умолчанию включены)
-
-    // Функция для запуска анимации иконок
-function startFloatingLogos() {
-    const logos = ['fab fa-bitcoin', 'fab fa-ethereum', 'fas fa-solar-panel'];
-    intervalId = setInterval(() => {
-        // Определяем количество иконок в зависимости от ширины экрана
-        const iconCount = window.innerWidth < 768 ? 0 : Math.floor(Math.random() * 30) + 0.8;
-
-        for (let i = 0; i < iconCount; i++) { // Исправленное условие
-            const logoClass = logos[Math.floor(Math.random() * logos.length)];
-            const floatingLogo = document.createElement('i');
-            floatingLogo.className = `${logoClass} purple-icon floating-logo`;
-
-            // Размер иконки (примерно 50px)
-            const logoSize = 50;
-
-            // Рассчитываем координаты так, чтобы иконки не выходили за пределы экрана
-            const randomX = Math.random() * (window.innerWidth - logoSize);
-            const randomY = Math.random() * (window.innerHeight - logoSize);
-
-            floatingLogo.style.left = `${randomX}px`;
-            floatingLogo.style.top = `${randomY}px`;
-
-            document.body.appendChild(floatingLogo);
-
-            // Удаляем иконку через 2 секунды
-            setTimeout(() => {
-                floatingLogo.remove();
-            }, 2000);
-        }
-    }, 100);
-}
-
-    // Инициализация анимации иконок при загрузке страницы
-    startFloatingLogos();
-
-    // Toggle Background Icons Functionality
-    document.addEventListener("DOMContentLoaded", () => {
-        const toggleButton = document.getElementById("toggle-icons-button");
-        if (toggleButton) {
-            toggleButton.addEventListener("click", () => {
-                const buttonText = document.getElementById("toggle-icons-text");
-
-                if (iconsEnabled) {
-                    // Отключаем иконки
-                    clearInterval(intervalId); // Останавливаем анимацию иконок
-                    document.querySelectorAll('.floating-logo').forEach(icon => icon.remove()); // Удаляем все текущие иконки
-                    buttonText.textContent = translations[currentLanguage]["enable-objects"]; // Меняем текст кнопки
-                } else {
-                    // Включаем иконки
-                    startFloatingLogos(); // Запускаем анимацию снова
-                    buttonText.textContent = translations[currentLanguage]["disable-objects"]; // Меняем текст кнопки
-                }
-
-                iconsEnabled = !iconsEnabled; // Переключаем состояние
-            });
-        }
 
         // Language Switcher
         const currentFlag = document.getElementById("current-flag");
@@ -1252,13 +1272,7 @@ function startFloatingLogos() {
                     element.textContent = translations[lang][key];
                 }
             }
-            // Обновляем текст кнопки
-            updateToggleButtonTranslation(lang);
-        }
-
-        // Инициализация перевода при загрузке страницы
-        translatePage(currentLanguage);
-    });
+    }
     document.querySelectorAll('.faq-question').forEach(question => {
         question.addEventListener('click', () => {
             const currentAnswer = question.nextElementSibling;
@@ -1271,6 +1285,8 @@ function startFloatingLogos() {
                 question.classList.remove('open'); // Убираем класс open для подсветки
             }
         });
+
+
     // Styling social media icons
     document.querySelectorAll('.social-icons a').forEach(item => {
         item.style.borderRadius = '10px';
