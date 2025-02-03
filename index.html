@@ -1141,8 +1141,8 @@
     function startFloatingLogos() {
         const logos = ['fab fa-bitcoin', 'fab fa-ethereum', 'fas fa-solar-panel'];
         intervalId = setInterval(() => {
-            for (let i = 0; i < Math.floor(Math.random() * 30) + 10; i++) {
-                const iconCount = window.innerWidth < 768 ? 5 : Math.floor(Math.random() * 30) + 10; // Для мобильных <= 5 иконок
+            const iconCount = window.innerWidth < 768 ? 5 : Math.floor(Math.random() * 30) + 10;
+            for (let i = 0; i < iconCount; i++) {
                 const logoClass = logos[Math.floor(Math.random() * logos.length)];
                 const floatingLogo = document.createElement('i');
                 floatingLogo.className = `${logoClass} purple-icon floating-logo`;
