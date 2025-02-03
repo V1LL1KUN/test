@@ -1139,22 +1139,36 @@
     let iconsEnabled = true; // Состояние иконок (по умолчанию включены)
 
     // Функция для запуска анимации иконок
-    function startFloatingLogos() {
-        const logos = ['fab fa-bitcoin', 'fab fa-ethereum', 'fas fa-solar-panel'];
-        intervalId = setInterval(() => {
-            for (let i = 0; i < Math.floor(Math.random() * 30) + 5; i++) {
-                const logoClass = logos[Math.floor(Math.random() * logos.length)];
-                const floatingLogo = document.createElement('i');
-                floatingLogo.className = `${logoClass} purple-icon floating-logo`;
-                floatingLogo.style.left = `${Math.random() * 100}%`;
-                floatingLogo.style.top = `${Math.random() * 100}%`;
-                document.body.appendChild(floatingLogo);
-                setTimeout(() => {
-                    floatingLogo.remove();
-                }, 2000);
-            }
-        }, 100);
-    }
+function startFloatingLogos() {
+    const logos = ['fab fa-bitcoin', 'fab fa-ethereum', 'fas fa-solar-panel'];
+    intervalId = setInterval(() => {
+        // Определяем количество иконок в зависимости от ширины экрана
+        const iconCount = window.innerWidth < 768 ? 0 : Math.floor(Math.random() * 30) + 5;
+
+        for (let i = 0; i < iconCount; i++) { // Исправленное условие
+            const logoClass = logos[Math.floor(Math.random() * logos.length)];
+            const floatingLogo = document.createElement('i');
+            floatingLogo.className = `${logoClass} purple-icon floating-logo`;
+
+            // Размер иконки (примерно 50px)
+            const logoSize = 50;
+
+            // Рассчитываем координаты так, чтобы иконки не выходили за пределы экрана
+            const randomX = Math.random() * (window.innerWidth - logoSize);
+            const randomY = Math.random() * (window.innerHeight - logoSize);
+
+            floatingLogo.style.left = `${randomX}px`;
+            floatingLogo.style.top = `${randomY}px`;
+
+            document.body.appendChild(floatingLogo);
+
+            // Удаляем иконку через 2 секунды
+            setTimeout(() => {
+                floatingLogo.remove();
+            }, 2000);
+        }
+    }, 100);
+}
 
     // Инициализация анимации иконок при загрузке страницы
     startFloatingLogos();
