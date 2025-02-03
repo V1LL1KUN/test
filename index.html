@@ -564,6 +564,53 @@
         .roadmap-item:nth-child(even) {
             animation-delay: 0.5s;
         }
+        
+        /* Language Switcher */
+        .language-switcher {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            cursor: pointer;
+        }
+
+        .language-switcher .current-flag {
+            font-size: 2em;
+            transition: opacity 0.3s ease;
+        }
+
+        .language-switcher .dropdown {
+            display: none;
+            flex-direction: column;
+            align-items: center; /* Центрируем элементы по центру */
+            margin-top: 10px;
+            background-color: rgba(31, 31, 31, 0.2);
+            border-radius: 60px;
+            padding: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 0.3s ease-in-out;
+            position: absolute; /* Абсолютное позиционирование */
+            top: 100%; /* Размещаем прямо под флагом */
+            left: -6px; /* Выравниваем по правому краю */
+            transform: translateX(0); /* Убираем смещение */
+        }
+
+        .language-switcher .dropdown.open {
+            display: flex;
+        }
+
+        .language-switcher .dropdown div {
+            font-size: 2em;
+            margin: 5px 0;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .language-switcher .dropdown div:hover {
+            color: #673AB7;
+        }
         /* Media Queries for Mobile and Tablet */
         @media (max-width: 768px) {
             body {
@@ -714,52 +761,6 @@
                  left: -10px;
                  padding: 5px;
              }
-        }
-        /* Language Switcher */
-        .language-switcher {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: flex-end;
-            cursor: pointer;
-        }
-
-        .language-switcher .current-flag {
-            font-size: 2em;
-            transition: opacity 0.3s ease;
-        }
-
-        .language-switcher .dropdown {
-            display: none;
-            flex-direction: column;
-            align-items: center; /* Центрируем элементы по центру */
-            margin-top: 10px;
-            background-color: rgba(31, 31, 31, 0.2);
-            border-radius: 60px;
-            padding: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            animation: fadeIn 0.3s ease-in-out;
-            position: absolute; /* Абсолютное позиционирование */
-            top: 100%; /* Размещаем прямо под флагом */
-            left: -6px; /* Выравниваем по правому краю */
-            transform: translateX(0); /* Убираем смещение */
-        }
-
-        .language-switcher .dropdown.open {
-            display: flex;
-        }
-
-        .language-switcher .dropdown div {
-            font-size: 2em;
-            margin: 5px 0;
-            cursor: pointer;
-            transition: color 0.3s ease;
-        }
-
-        .language-switcher .dropdown div:hover {
-            color: #673AB7;
         }
         @keyframes fadeIn {
             from {
