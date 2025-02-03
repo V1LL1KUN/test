@@ -277,13 +277,13 @@
             0%, 100% { opacity: 0; bottom: -50px; }
             20%, 80% { opacity: 1; bottom: 20px; }
         }
-        /* Random icons in the background */
+        /* Ограничение области для иконок */
         .floating-logo {
-            position: absolute;
+            position: fixed; /* Используем fixed, чтобы иконки оставались в видимой области */
             opacity: 0.1; /* Прозрачность */
             animation: floatInAndOut 2s forwards;
             pointer-events: none; /* Отключение взаимодействия */
-            z-index: 1;
+            z-index: 0;
         }
         @keyframes floatInAndOut {
             0% {
@@ -1142,13 +1142,24 @@
     function startFloatingLogos() {
         const logos = ['fab fa-bitcoin', 'fab fa-ethereum', 'fas fa-solar-panel'];
         intervalId = setInterval(() => {
-            for (let i = 0; i < Math.floor(Math.random() * 30) + 40; i++) {
+            for (let i = 0; i < Math.floor(Math.random() * 30) + 2; i++) {
                 const logoClass = logos[Math.floor(Math.random() * logos.length)];
                 const floatingLogo = document.createElement('i');
                 floatingLogo.className = `${logoClass} purple-icon floating-logo`;
-                floatingLogo.style.left = `${Math.random() * 100}%`;
-                floatingLogo.style.top = `${Math.random() * 100}%`;
+
+                // Размер иконки (примерно 50px)
+                const logoSize = 50;
+
+                // Рассчитываем координаты так, чтобы иконки не выходили за пределы экрана
+                const randomX = Math.random() * (window.innerWidth - logoSize); // Ограничиваем x
+                const randomY = Math.random() * (window.innerHeight - logoSize); // Ограничиваем y
+
+                floatingLogo.style.left = `${randomX}px`; // Устанавливаем координату x
+                floatingLogo.style.top = `${randomY}px`; // Устанавливаем координату y
+
                 document.body.appendChild(floatingLogo);
+
+                // Удаляем иконку через 2 секунды
                 setTimeout(() => {
                     floatingLogo.remove();
                 }, 2000);
