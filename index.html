@@ -1142,7 +1142,7 @@
         const logos = ['fab fa-bitcoin', 'fab fa-ethereum', 'fas fa-solar-panel'];
         intervalId = setInterval(() => {
             // Определяем количество иконок в зависимости от ширины экрана
-            const iconCount = window.innerWidth < 768 ? 0.5 : Math.floor(Math.random() * 30) + 1; // Для мобильных <= 5 иконок
+            const iconCount = window.innerWidth < 768 ? 0.85 : Math.floor(Math.random() * 30) + 1; // Для мобильных <= 5 иконок
 
             for (let i = 0; i < iconCount; i++) {
                 const logoClass = logos[Math.floor(Math.random() * logos.length)];
