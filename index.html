@@ -277,13 +277,13 @@
             0%, 100% { opacity: 0; bottom: -50px; }
             20%, 80% { opacity: 1; bottom: 20px; }
         }
-        /* Ограничение области для иконок */
+        /* Random icons in the background */
         .floating-logo {
-            position: fixed; /* Используем fixed, чтобы иконки оставались в видимой области */
+            position: fixed;
             opacity: 0.1; /* Прозрачность */
             animation: floatInAndOut 2s forwards;
             pointer-events: none; /* Отключение взаимодействия */
-            z-index: 0;
+            z-index: 1;
         }
         @keyframes floatInAndOut {
             0% {
@@ -1138,10 +1138,11 @@
     let intervalId = null; // Для хранения ID интервала
     let iconsEnabled = true; // Состояние иконок (по умолчанию включены)
 
+    // Функция для запуска анимации иконок
     function startFloatingLogos() {
         const logos = ['fab fa-bitcoin', 'fab fa-ethereum', 'fas fa-solar-panel'];
         intervalId = setInterval(() => {
-            for (let i = 0; i < Math.floor(Math.random() * 30) + 5; i++) {
+            for (let i = 0; i < Math.floor(Math.random() * 30) + 40; i++) {
                 const logoClass = logos[Math.floor(Math.random() * logos.length)];
                 const floatingLogo = document.createElement('i');
                 floatingLogo.className = `${logoClass} purple-icon floating-logo`;
