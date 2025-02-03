@@ -37,23 +37,70 @@
             font-size: 1.2em;
             margin: 10px 0 0;
         }
-        /* Звёздное небо */
-        .stars-container {
-            position: fixed; /* Или absolute, если хотите адаптировать под контент */
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100vh; /* Высота равна высоте экрана */
-            pointer-events: none; /* Отключаем взаимодействие */
-            z-index: -1; /* Фон должен быть за всем содержимым */
+
+        /* Неоновый эффект */
+        .neon-text {
+            color: #673AB7; /* Фиолетовый цвет */
+            text-shadow:
+                    0 0 3.5px #673AB7;
+            font-size: 2rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        .gneon-text {
+            color: #673AB7; /* Фиолетовый цвет */
+            text-shadow:
+                    0 0 8px #673AB7;
+            font-size: 2rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        .sml_neon-text {
+            color: #ffffff;
+            text-shadow:
+                    0 0 2px #ffffff;
+            font-size: 2rem;
+            font-weight: bold;
+            letter-spacing: 3px;
         }
 
-        .star {
+        .neon-button {
+            background-color: transparent;
+            border: 2px solid #673AB7;
+            color: #673AB7;
+            padding: 10px 20px;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .neon-button::before {
+            content: '';
             position: absolute;
-            background-color: rgba(103, 58, 183, 0.3); /* Фиолетовые звёзды */
-            border-radius: 50%; /* Круглая форма */
-            animation: twinkle 5s infinite ease-in-out; /* Мигание звёзд */
-            pointer-events: none;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: rgba(103, 58, 183, 0.5);
+            transition: left 0.5s ease;
+        }
+
+        .neon-button:hover::before {
+            left: 0;
+        }
+
+        .neon-button:hover {
+            box-shadow:
+                    0 0 5px #673AB7,
+                    0 0 10px #673AB7,
+                    0 0 20px #673AB7,
+                    0 0 40px #673AB7;
         }
 
         @keyframes twinkle {
@@ -112,13 +159,29 @@
             overflow: hidden;
         }
 
-        /* Частицы */
+        /* Мягкое свечение для частиц */
         .particle {
             position: absolute;
             background-color: rgba(103, 58, 183, 0.5); /* Фиолетовый цвет */
             border-radius: 50%; /* Круглая форма */
             animation: moveParticle 10s infinite ease-in-out; /* Анимация движения */
             pointer-events: none;
+            box-shadow:
+                    0 0 10px rgba(103, 58, 183, 0.5),
+                    0 0 20px rgba(103, 58, 183, 0.5),
+                    0 0 30px rgba(103, 58, 183, 0.5);
+        }
+
+        @keyframes floatBlob {
+            0% {
+                transform: translateY(0) translateX(0) scale(1);
+            }
+            50% {
+                transform: translateY(-50vh) translateX(50vw) scale(1.5);
+            }
+            100% {
+                transform: translateY(0) translateX(0) scale(1);
+            }
         }
 
         @keyframes moveParticle {
@@ -693,14 +756,14 @@
 <!-- Hero Section -->
 <section class="hero-section">
     <div>
-        <h1 id="hero-title">Join the $PEACE Movement</h1>
-        <p id="hero-description">Together, we can make the world a better place.</p>
-        <a href="#" class="cta-button" id="cta-button">Get Started</a>
+        <h1 class="gneon-text" id="hero-title">Join the $PEACE Movement</h1>
+        <p class="sml_neon-text" id="hero-description">Together, we can make the world a better place.</p>
+        <a href="#"  class="cta-button" id="cta-button">Get Started</a>
     </div>
 </section>
 <div class="container">
     <section class="section token-info">
-        <h2 id="about-title">About $PEACE Token</h2>
+        <h2 class="neon-text" id="about-title">About $PEACE Token</h2>
         <p id="about-description">The $PEACE Token was launched in honor of peace between Russia and Ukraine, aiming to promote the cessation of war and bring about global harmony. By purchasing $PEACE Token, you are contributing to a better future for everyone.</p>
         <p><strong id="total-supply">Total Supply:</strong> 200,000,000 $PEACE</p>
         <p>
@@ -712,7 +775,7 @@
         <p id="additional-description">In a world where conflict and division seem to be ever-present, every individual has the power to make a difference. The $PEACE Token symbolizes hope and unity. Every purchase contributes directly to initiatives that aim to end wars and foster global peace. With your support, we can take meaningful steps towards a brighter, more harmonious future.</p>
     </section>
     <section class="section distribution" id="distribution-section">
-        <h2 id="distribution-title">Distribution</h2>
+        <h2 class="neon-text" id="distribution-title">Distribution</h2>
         <div id="chart-container" class="chart-container">
             <canvas id="myChart"></canvas>
         </div>
@@ -826,7 +889,7 @@
                     particle.style.top = `${Math.random() * 100}%`;
 
                     // Случайный размер
-                    const size = Math.random() * 3 + 2;
+                    const size = Math.random() * 3 + 2; // Размер от 2px до 5px
                     particle.style.width = `${size}px`;
                     particle.style.height = `${size}px`;
 
@@ -839,10 +902,11 @@
 
             // Создаём 50 частиц
             createParticles(50);
+
         });
     </script>
     <section class="section roadmap">
-        <h2 id="roadmap-title">Roadmap</h2>
+        <h2 class="neon-text" id="roadmap-title">Roadmap</h2>
         <ul class="roadmap-timeline">
             <li class="roadmap-item">
                 <div class="roadmap-content">
@@ -877,7 +941,7 @@
         </ul>
     </section>
     <section class="section features">
-        <h2 id="features-title">Features</h2>
+        <h2 class="neon-text" id="features-title">Features</h2>
         <div class="card">
             <i class="fas fa-globe-americas purple-icon"></i>
             <div class="card-content">
@@ -915,12 +979,12 @@
         </div>
     </section>
     <section class="section team">
-        <h2 id="team-title">Our Team</h2>
+        <h2 class="neon-text" id="team-title">Our Team</h2>
         <p id="team-description">The $PEACE Token project was founded by two friends, one from Russia and the other from Ukraine. They met during a cultural exchange program and quickly became close friends, sharing a common vision for a peaceful world. Despite political tensions and separation, they continued to communicate daily, dreaming of a future where people from all nations could live in harmony. Their friendship inspired them to create the $PEACE Token, a symbol of hope and unity in adversity. With your support, they aim to turn this dream into reality, bringing peace and prosperity to communities globally.</p>
         <p id="team-additional-description">We have a diverse and dedicated team of professionals passionate about peace. From blockchain developers to peace activists, each member brings unique skills and experiences. Together, we work tirelessly to ensure the $PEACE Token project achieves its full potential and makes a lasting impact on the world.</p>
     </section>
     <section class="section faq-section">
-        <h2 id="faq-title">Frequently Asked Questions</h2>
+        <h2 class="neon-text" id="faq-title">Frequently Asked Questions</h2>
         <div class="faq">
             <div class="faq-question" id="faq-purpose">What is the purpose of the $PEACE Token?</div>
             <div class="faq-answer" id="faq-purpose-answer">The $PEACE Token aims to promote global peace and harmony by supporting initiatives that foster understanding and cooperation among nations.</div>
@@ -1285,7 +1349,6 @@
                 question.classList.remove('open'); // Убираем класс open для подсветки
             }
         });
-
 
     // Styling social media icons
     document.querySelectorAll('.social-icons a').forEach(item => {
