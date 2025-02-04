@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Grandstander:wght@700&family=Roboto:wght@500&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Fira+Sans:wght@700&display=swap');
         body {
             font-family: 'Roboto', sans-serif;
             background-color: #121212;
@@ -37,6 +38,14 @@
             font-size: 1.2em;
             margin: 10px 0 0;
         }
+
+        /* Медиа-запрос для мобильных устройств */
+        @media (max-width: 768px) {
+            /* Замена шрифта только для кириллицы */
+            :lang(ru) header h1 {
+                font-family: 'Fira Sans', sans-serif; /* Альтернативный шрифт для кириллицы */
+            }
+
 
         /* Неоновый эффект */
         .neon-text {
@@ -564,7 +573,7 @@
         .roadmap-item:nth-child(even) {
             animation-delay: 0.5s;
         }
-        
+
         /* Language Switcher */
         .language-switcher {
             position: absolute;
@@ -611,7 +620,7 @@
         .language-switcher .dropdown div:hover {
             color: #673AB7;
         }
-            
+
         /* Media Queries for Mobile and Tablet */
         @media (max-width: 768px) {
             body {
@@ -703,10 +712,10 @@
             body {
                 font-size: 18px;
             }
-             .language-switcher .dropdown {
-                 left: -4.5px;
-                 padding: 5px;
-             }
+            .language-switcher .dropdown {
+                left: -4.5px;
+                padding: 5px;
+            }
         }
         @media (max-width: 480px) {
             body {
@@ -759,27 +768,27 @@
                 font-size: 12px;
             }
             .language-switcher .dropdown {
-                 left: -4.5px;
-                 padding: 5px;
-             }
-            
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(-10px);
+                left: -4.5px;
+                padding: 5px;
             }
-            to {
-                opacity: 1;
-                transform: translateY(0);
+
+            @keyframes fadeIn {
+                from {
+                    opacity: 0;
+                    transform: translateY(-10px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
             }
-        }
-        /* Запрещаем горизонтальный скроллинг */
-        html, body {
-            overflow-x: hidden; /* Убираем горизонтальную прокрутку */
-            max-width: 100%; /* Ограничиваем ширину контента */
-            margin: 0; /* Убираем отступы по умолчанию */
-            padding: 0; /* Убираем внутренние отступы */
-        }
+            /* Запрещаем горизонтальный скроллинг */
+            html, body {
+                overflow-x: hidden; /* Убираем горизонтальную прокрутку */
+                max-width: 100%; /* Ограничиваем ширину контента */
+                margin: 0; /* Убираем отступы по умолчанию */
+                padding: 0; /* Убираем внутренние отступы */
+            }
     </style>
 </head>
 <body>
@@ -1321,73 +1330,73 @@
         });
     }
 
-        // Language Switcher
-        const currentFlag = document.getElementById("current-flag");
-        const languageDropdown = document.getElementById("language-dropdown");
+    // Language Switcher
+    const currentFlag = document.getElementById("current-flag");
+    const languageDropdown = document.getElementById("language-dropdown");
 
-        if (currentFlag && languageDropdown) {
-            currentFlag.addEventListener("click", () => {
-                if (languageDropdown.classList.contains("open")) {
-                    languageDropdown.classList.remove("open");
-                } else {
-                    languageDropdown.classList.add("open");
-                    updateDropdownFlags();
+    if (currentFlag && languageDropdown) {
+        currentFlag.addEventListener("click", () => {
+            if (languageDropdown.classList.contains("open")) {
+                languageDropdown.classList.remove("open");
+            } else {
+                languageDropdown.classList.add("open");
+                updateDropdownFlags();
+            }
+        });
+
+        function updateDropdownFlags() {
+            languageDropdown.innerHTML = "";
+            const languages = ["en", "ru", "es"];
+            languages.forEach(lang => {
+                if (lang !== currentLanguage) {
+                    const flag = document.createElement("div");
+                    flag.textContent = getFlagEmoji(lang);
+                    flag.setAttribute("data-lang", lang);
+                    flag.addEventListener("click", () => {
+                        translatePage(lang);
+                        currentFlag.textContent = getFlagEmoji(lang);
+                        languageDropdown.classList.remove("open");
+                    });
+                    languageDropdown.appendChild(flag);
                 }
             });
+        }
+    }
 
-            function updateDropdownFlags() {
-                languageDropdown.innerHTML = "";
-                const languages = ["en", "ru", "es"];
-                languages.forEach(lang => {
-                    if (lang !== currentLanguage) {
-                        const flag = document.createElement("div");
-                        flag.textContent = getFlagEmoji(lang);
-                        flag.setAttribute("data-lang", lang);
-                        flag.addEventListener("click", () => {
-                            translatePage(lang);
-                            currentFlag.textContent = getFlagEmoji(lang);
-                            languageDropdown.classList.remove("open");
-                        });
-                        languageDropdown.appendChild(flag);
-                    }
-                });
+    // Обновление текста кнопки при смене языка
+    function updateToggleButtonTranslation(lang) {
+        const buttonText = document.getElementById("toggle-icons-text");
+        if (buttonText) {
+            if (iconsEnabled) {
+                buttonText.textContent = translations[lang]["disable-objects"];
+            } else {
+                buttonText.textContent = translations[lang]["enable-objects"];
             }
         }
+    }
 
-        // Обновление текста кнопки при смене языка
-        function updateToggleButtonTranslation(lang) {
-            const buttonText = document.getElementById("toggle-icons-text");
-            if (buttonText) {
-                if (iconsEnabled) {
-                    buttonText.textContent = translations[lang]["disable-objects"];
-                } else {
-                    buttonText.textContent = translations[lang]["enable-objects"];
-                }
+    // Перевод страницы
+    function translatePage(lang) {
+        currentLanguage = lang;
+        for (const key in translations[lang]) {
+            const element = document.getElementById(key);
+            if (element) {
+                element.textContent = translations[lang][key];
             }
         }
-
-        // Перевод страницы
-        function translatePage(lang) {
-            currentLanguage = lang;
-            for (const key in translations[lang]) {
-                const element = document.getElementById(key);
-                if (element) {
-                    element.textContent = translations[lang][key];
-                }
-            }
     }
     document.querySelectorAll('.faq-question').forEach(question => {
         question.addEventListener('click', () => {
             const currentAnswer = question.nextElementSibling;
-            });
-            if (currentAnswer.classList.contains('open')) {
-                currentAnswer.style.maxHeight = currentAnswer.scrollHeight + 'px'; // Устанавливаем высоту
-                question.classList.add('open'); // Добавляем класс open для подсветки
-            } else {
-                currentAnswer.style.maxHeight = null; // Сбрасываем высоту
-                question.classList.remove('open'); // Убираем класс open для подсветки
-            }
         });
+        if (currentAnswer.classList.contains('open')) {
+            currentAnswer.style.maxHeight = currentAnswer.scrollHeight + 'px'; // Устанавливаем высоту
+            question.classList.add('open'); // Добавляем класс open для подсветки
+        } else {
+            currentAnswer.style.maxHeight = null; // Сбрасываем высоту
+            question.classList.remove('open'); // Убираем класс open для подсветки
+        }
+    });
 
     // Styling social media icons
     document.querySelectorAll('.social-icons a').forEach(item => {
