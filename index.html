@@ -38,11 +38,10 @@
             font-size: 1.2em;
             margin: 10px 0 0;
         }
-       /* Медиа-запрос для мобильных устройств */
+        /* Медиа-запрос для мобильных устройств */
         @media (max-width: 768px) {
             /* Замена шрифта только для кириллицы */
-            :lang(ru) h1,
-            :lang(ru) h2 {
+             h1,h2 {
                 font-family: 'Fira Sans', sans-serif; /* Альтернативный шрифт для кириллицы */
             }
         }
@@ -50,8 +49,7 @@
         /* Медиа-запрос для мобильных устройств */
         @media (max-width: 480px) {
             /* Замена шрифта только для кириллицы */
-            :lang(ru) h1,
-            :lang(ru) h2 {
+            h1, h2 {
                 font-family: 'Fira Sans', sans-serif; /* Альтернативный шрифт для кириллицы */
             }
         }
@@ -612,7 +610,7 @@
             animation: fadeIn 0.3s ease-in-out;
             position: absolute; /* Абсолютное позиционирование */
             top: 100%; /* Размещаем прямо под флагом */
-            left: -6px; /* Выравниваем по правому краю */
+            left: -8px; /* Выравниваем по правому краю */
             transform: translateX(0); /* Убираем смещение */
         }
 
@@ -800,9 +798,9 @@
                 padding: 0; /* Убираем внутренние отступы */
             }
     </style>
+
 </head>
 <body>
-<link rel="stylesheet" href="styles.css?v=2">
 <div class="logo-container">
     <img src="photo_2025-02-03_21-30-22-Photoroom.png" alt="Company Logo" class="company-logo">
 </div>
