@@ -631,6 +631,16 @@
         .language-switcher .dropdown div:hover {
             color: #673AB7;
         }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
 
         /* Media Queries for Mobile and Tablet */
         @media (max-width: 768px) {
@@ -686,11 +696,11 @@
                 width: 155px; /* Уменьшенный размер для мобильных */
             }
             .company-logo2 {
-                width: 60px; /* Уменьшенный размер для мобильных */
+                width: 70px; /* Уменьшенный размер для мобильных */
             }
             .logo2-container {
                 top: 80px;
-                left: 17px;
+                left: 13px;
             }
             .card p {
                 font-size: 14px;
