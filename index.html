@@ -157,6 +157,20 @@
             height: auto; /* Автоматическая высота для сохранения пропорций */
         }
 
+        .logo2-container {
+            position: absolute; /* Логотип вне основного потока */
+            top: 120px; /* Отступ сверху */
+            left: 25px; /* Отступ слева */
+            z-index: 10; /* Чтобы логотип был поверх других элементов */
+            pointer-events: none; /* Отключаем взаимодействие */
+        }
+
+        /* Стиль для изображения логотипа */
+        .company-logo2 {
+            width: 100px; /* Ширина логотипа */
+            height: auto; /* Автоматическая высота для сохранения пропорций */
+        }
+
         .section {
             background-color: rgba(31, 31, 31, 0.8);
             padding: 30px;
@@ -671,6 +685,13 @@
             .company-logo {
                 width: 155px; /* Уменьшенный размер для мобильных */
             }
+            .company-logo2 {
+                width: 60px; /* Уменьшенный размер для мобильных */
+            }
+            .logo2-container {
+                top: 80px;
+                left: 17px;
+            }
             .card p {
                 font-size: 14px;
             }
@@ -792,6 +813,9 @@
 <body>
 <div class="logo-container">
     <img src="photo_2025-02-03_21-30-22-Photoroom.png" alt="Company Logo" class="company-logo">
+</div>
+<div class="logo2-container">
+    <img src="qr-code(8)-Photoroom.png" alt="Company Logo2" class="company-logo2">
 </div>
 <div class="particles-container"></div>
 <!-- Language Switcher -->
