@@ -54,6 +54,42 @@
             text-transform: uppercase;
             letter-spacing: 2px;
         }
+
+
+        .modal {
+            display: none; /* По умолчанию скрыто */
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+        .modal-content {
+            background-color: white;
+            color: black;
+            padding: 20px;
+            border-radius: 10px;
+            width: 80%;
+            max-width: 800px;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        .close {
+            float: right;
+            font-size: 1.5em;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .close:hover {
+            color: red;
+        }
+
         .gneon-text {
             color: #673AB7; /* Фиолетовый цвет */
             text-shadow:
@@ -838,7 +874,7 @@
     <div>
         <h1 class="gneon-text" id="hero-title">Join the $PEACE Movement</h1>
         <p class="sml_neon-text" id="hero-description">Together, we can make the world a better place.</p>
-        <a href="#"  class="cta-button" id="cta-button">Get Started</a>
+        <a href="https://raydium.io/swap/?inputMint=Es9vMFrzaCERmJfrF4H2FYD4KCoNkY11McCe8BenwNYB&outputMint=6p6xgHyF7AeE6TZkSmFsko444wqoP15icUSqi2jfGiPN"  class="cta-button" id="cta-button">Get Started</a>
     </div>
 </section>
 <div class="container">
@@ -1083,8 +1119,128 @@
 </div>
 <footer class="footer">
     <p id="footer-copyright">&copy; 2025 $PEACE Token. All rights reserved.</p>
-    <a href="#" id="privacy-policy-link">Privacy Policy</a> |
-    <a href="#" id="terms-of-service-link">Terms of Service</a>
+    <a href="#" id="Terms and Conditions">Terms and Conditions</a>
+
+    <!-- Модальное окно -->
+    <div id="termsModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h1>Terms and Conditions</h1>
+            <p>
+                Last Modified: January 18, 2025<br>
+                The website located at peacetoken.com (the “Website”) is the intellectual property of PEACE Innovations, LLC (hereinafter collectively referred to as “we,” “our,” or “us”). The following Terms and Conditions also incorporate by reference our Privacy Policy, and any and all other applicable operating rules, policies, schedules, and other terms and conditions or documents that may be published from time to time (collectively, the “Terms and Conditions” or this “Agreement”). Our Website, together with any content, functionality, and services offered on or through our Website, and all of the existing and any updated or new content, features, functionalities, materials, social media pages, shall be collectively referred to as the “Services.” These Terms and Conditions explain the terms and conditions by which you may access and use the Services provided by us. Please review these Terms and Conditions carefully before accessing the Website or any of the Services. The Terms and Conditions supersede all prior or contemporaneous agreements, representations, warranties, and/or understandings with respect to your use of the Services. If you do not agree to the Terms and Conditions in its entirety, you should not use the Website or any of the Services in any manner or form whatsoever.
+
+                THIS AGREEMENT CONTAINS DISCLAIMERS OF WARRANTIES, LIMITATIONS OF LIABILITY, RELEASES, CLASS-ACTION WAIVER, AND THE REQUIREMENT TO ARBITRATE ANY AND ALL CLAIMS THAT MAY ARISE HEREUNDER AGAINST PEACE Innovations, LLC, ITS AFFILIATES, MANAGERS, MEMBERS, SERVICE PROVIDERS, PARTNERS, ADVISORS, AND VENDORS (COLLECTIVELY, “COVERED PARTIES”), WHO ARE THE EXPRESS THIRD-PARTY BENEFICIARIES OF THE MANDATORY ARBITRATION PROVISION. THE AFOREMENTIONED PROVISIONS ARE AN ESSENTIAL BASIS OF THIS AGREEMENT.
+
+                You agree to the Terms and Conditions in its entirety when you:
+                (a) access or use the Website;
+                (b) access and/or view any of the: (i) links to third-party resources and other information (“Third-Party Links”) through the Website; and/or (ii) videos, audio, stories, testimonials, text, photographs, graphics, artwork, information, and/or other content that may be featured on the Website (the “Website Content,” and together with the Third-Party Links, the “Content”);
+                (c) purchase any of the Solana blockchain-based fungible cryptographic assets known as $PEACE Tokens or “PEACE” featured on the Website (the “$PEACE Tokens”); and/or
+                (d) utilize the various registration forms, contact forms, and/or contact information made available on the Website.
+
+                THE $PEACE TOKENS ARE DIGITAL COLLECTIBLES INTENDED TO FUNCTION AS AN EXPRESSION OF SUPPORT FOR, AND ENGAGEMENT WITH, THE IDEALS AND BELIEFS EMBODIED BY THE SYMBOL “PEACE” AND THE ASSOCIATED ARTWORK (THE “ARTWORK”) AND ARE NOT INTENDED TO BE, OR TO BE THE SUBJECT OF, AN INVESTMENT OPPORTUNITY, INVESTMENT CONTRACT, OR SECURITY OF ANY TYPE. NO FEDERAL OR STATE AGENCY OR ANY OTHER GOVERNMENTAL AUTHORITY HAS PASSED ON OR MADE ANY RECOMMENDATION OR ENDORSEMENT OF THE $PEACE TOKENS OR THE FAIRNESS OR SUITABILITY OF THE PURCHASE OF THE $PEACE TOKENS, NOR HAS ANY GOVERNMENTAL AUTHORITY PASSED UPON OR ENDORSED THE MERITS OF THE SERVICES. NEITHER THE $PEACE TOKENS NOR THE SERVICES ARE POLITICAL AND HAVE NOTHING TO DO WITH ANY POLITICAL CAMPAIGN, GOVERNMENT AGENCY, OR GOVERNMENTAL OFFICE IN THE UNITED STATES OF AMERICA OR ELSEWHERE. THE $PEACE TOKENS ARE NOT INTENDED TO BE DISTRIBUTED TO ANY PERSON OR ENTITY IN ANY JURISDICTION WHERE SUCH TRANSACTIONS ARE RESTRICTED OR PROHIBITED UNDER APPLICABLE LAWS. IT IS YOUR RESPONSIBILITY TO ENSURE COMPLIANCE WITH THE LAWS OF YOUR JURISDICTION IN CONNECTION WITH YOUR PURCHASE, TRADE, OR SALE OF THE $PEACE TOKENS. THE $PEACE TOKENS HAVE NOT BEEN REGISTERED UNDER ANY LAWS OF ANY JURISDICTION.
+                Requirements
+                General
+
+                The Services are available only to individuals who can enter into legally binding contracts under applicable law. The Services are not intended for use by individuals under eighteen (18) years of age (or the applicable age of majority, if greater than eighteen (18) years of age in their respective jurisdictions). If you are under eighteen (18) years of age (or the applicable age of majority, if greater than eighteen (18) years of age in your jurisdiction) and/or if you are unable to enter into legally binding contracts and/or you are a Prohibited Party (defined below), you do not have permission to use and/or access the Services, and we may terminate your access to the Services at any time and for any reason in our sole discretion. In the case where you are an entity, you can only access the Services if you are duly incorporated, validly existing, and in good standing under the laws of the jurisdiction of your incorporation.
+                Prohibited Users
+
+                The Services are not available to:
+                (i) individuals or entities (including those owned or controlled by individuals) that are the subject of economic or trade sanctions administered or enforced by any governmental authority or otherwise designated on any list of prohibited or restricted parties (including but not limited to the United Nations Security Council, the European Union, His Majesty’s Treasury of the United Kingdom of Great Britain and Northern Ireland (the “UK Treasury”), and the U.S. Department of Treasury);
+                (ii) individuals or entities placed on the “Denied Persons List” by the Bureau of Industry and Security of the United States Department of Commerce; or
+                (iii) residents and citizens or entities located in or incorporated under the laws of any country, territory, or other jurisdiction subject to a U.S. Government embargo, or that have been designated by the U.S. Government as a terrorist-supporting country, or is otherwise the subject of comprehensive country-wide, territory-wide, or regional economic sanctions by the United Nations, the European Union, the UK Treasury, or the United States, including without limitation Cuba, the Crimea, Donetsk, and Luhansk regions of Ukraine, Iran, North Korea, Russia, Syria, or Yemen (collectively, “Prohibited Users”).
+                Prohibited Access
+
+                In addition to the foregoing, individuals are not permitted to access the Services with a Jail-Broken Mobile Device, a Rooted Android Device, or the substantial equivalent thereof. For purposes of the Terms and Conditions, a “Jail-Broken Mobile Device” is a Mobile Device that runs Apple’s iOS operating system that has had any of its iOS-based software restrictions removed via any procedure that is not fully endorsed and authorized by Apple, and a “Rooted Android Device” is a smartphone, tablet, or other device running the Android mobile operating system for which privileged root access control has been enabled thereby opening the operating system for additional customization.
+                Modification
+
+                We reserve the right to amend the Terms and Conditions and/or the Services from time to time without notice to you. The Terms and Conditions will be posted on the Website, and you should review the Terms and Conditions prior to using, reusing, accessing, or re-accessing the Services. By your continued use of the Services, you hereby agree to comply with, and be bound by, all of the terms and conditions contained within these Terms and Conditions effective at that time.
+                Registration
+
+                You may be required to submit an applicable registration form. We reserve the right, in our sole discretion, to deny access to the Services to anyone at any time and for any reason whatsoever.
+                Wallet, Cryptocurrency, and Technology Requirements
+
+                You shall be responsible, at all times, for obtaining and maintaining, at your sole cost and expense:
+                (a) all input/output devices or equipment (such as a computer/mobile device, up-to-date Internet browser version, modems, terminal equipment, computer equipment, and software) and communications services necessary to access certain Services and for ensuring that such equipment and services are compatible with all relevant requirements;
+                (b) a functioning crypto asset wallet suitable for use with Solana blockchain-based assets (a “Wallet”) capable of accessing the $PEACE Tokens; and
+                (c) any cryptocurrencies necessary to purchase and/or sell the $PEACE Tokens.
+
+                We do not guarantee the quality, speed, or availability of the Internet connection associated with any mobile device and/or computer. We do not guarantee that the Services can be accessed:
+                (i) on all mobile devices;
+                (ii) through all wireless service plans;
+                (iii) in connection with all Internet browsers; and/or
+                (iv) in all geographical areas.
+
+                Standard messaging, data, Internet usage, and blockchain transaction fees may apply to the use of the Services. You are fully responsible for all such charges, and we have no liability or responsibility to you, whatsoever, for any such charges. You assume all risks associated with using an Internet-based blockchain network, including, but not limited to, the risk of hardware, software, and Internet connections, the risk of malicious software introduction, and the risk that third parties may obtain unauthorized access to information stored on the blockchain and/or within your Wallet.
+
+                Cryptographic assets, cryptocurrencies, and blockchain technology are relatively new, and the regulatory landscape is unsettled.
+                $PEACE Tokens
+
+                The $PEACE Tokens are digital collectibles and intended to function as an expression of the ideals and beliefs embodied by the symbol "PEACE" and the associated artwork and are not intended to be, or to be the subject of, an investment opportunity, investment contract, or security of any type. They will not provide any special benefits or access to unique services.
+
+                By using the Website and the Services, you acknowledge and agree that the $PEACE Tokens should be traded solely as cryptographic assets intended to function as set forth above, and that you are acquiring the $PEACE Tokens as a mere collectible, and not as an investment opportunity, investment contract, or security of any type.
+
+                Please be aware that the price of $PEACE Tokens may be extremely volatile, and you may experience substantial losses in connection with a sale or other disposition of $PEACE Tokens. We make absolutely no promise or guarantee that the $PEACE Tokens will increase in value or maintain the same value as the amount you paid to purchase.
+
+                No information and/or Content made available by and through the Services is or should be considered advice or recommendation or an invitation to enter into an agreement for any investment purpose. Further, no element of the Services qualifies or is intended to be an offering of securities in any jurisdiction, nor does it constitute an offer or an invitation to purchase shares, securities, or other financial products.
+
+                IT REMAINS YOUR SOLE AND EXCLUSIVE RESPONSIBILITY TO ASSURE THAT THE PURCHASE AND SALE OF THE $PEACE TOKENS AND THE USE OF CRYPTOCURRENCIES COMPLIES WITH LAWS AND REGULATIONS IN YOUR JURISDICTION AND ALL APPLICABLE JURISDICTIONS. ALL TRANSACTIONS OF $PEACE TOKENS ARE FINAL AND NON-REFUNDABLE.
+
+                We shall have no responsibility or liability for any $PEACE Tokens that are lost, misplaced, or inaccessible.
+
+                You are solely responsible for reporting and paying any taxes applicable to your use of the Services or the purchase, trade, or sale of the $PEACE Tokens.
+                Items
+
+                With respect to any items that may be acquired, offered, or purchased by and through the Website, including without limitation the $PEACE Tokens, we do not warrant that the item descriptions are accurate, complete, reliable, or error-free. We have made every effort to display the Artwork associated with $PEACE Tokens as accurately as possible on the Website. However, there may be differences between the Artwork as depicted on the Website and other depictions. For example, the actual colors you see may depend on the monitor/screen and other factors associated with your computer, mobile device, or other device, as applicable, which you use to view the Artwork.
+                Content
+
+                Subject to the Terms and Conditions, users that possess the requisite technology shall have the opportunity to view, download, and/or interact with all or some of the Content made available by and through the Website and/or other Services. We do not control Content provided by third-party providers that is made available by and through the Website and/or other Services. Please be advised that we do not verify or fact-check statements made by third-party providers, and that the third-party providers themselves are solely responsible for the accuracy, completeness, appropriateness, safety, and/or usefulness of such Content.
+                Proprietary Rights
+
+                All Material is owned or licensed by or to us and is protected under applicable copyrights, trademarks, and other proprietary (including, but not limited to, intellectual property) rights. Except as expressly provided in the Terms and Conditions, no part of the Material may be reproduced, recorded, retransmitted, sold, rented, broadcast, distributed, published, uploaded, posted, publicly displayed, altered to make new works, performed, digitized, compiled, translated, or transmitted in any way to any other computer, Website, or other medium or for any commercial purpose, without prior express written consent.
+                Disclaimer of Warranties
+
+                THE SERVICES, INCLUDING THE $PEACE TOKENS, MATERIAL, AND/OR SERVICES OFFERED IN CONNECTION WITH SAME, ARE PROVIDED TO YOU ON AN “AS IS” AND “AS AVAILABLE” BASIS AND ALL WARRANTIES, EXPRESS, IMPLIED OR STATUTORY, REGARDING THEIR FUNCTIONALITY, RELIABILITY, OR AVAILABILITY ARE DISCLAIMED TO THE FULLEST EXTENT PERMISSIBLE PURSUANT TO APPLICABLE LAW.
+                Limitation of Liability
+
+                YOU EXPRESSLY UNDERSTAND AND AGREE THAT WE SHALL NOT BE LIABLE TO YOU OR ANY THIRD-PARTY FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, PUNITIVE, ENHANCED, AND/OR EXEMPLARY DAMAGES ARISING OUT OF YOUR USE OF THE SERVICES.
+                Dispute Resolution
+
+                The Terms and Conditions shall be governed by and construed in accordance with the laws of the State of Delaware (without regard to conflict of law principles). Any disputes shall be resolved through arbitration in accordance with the procedures outlined herein.
+                Miscellaneous
+
+                Should any part of the Terms and Conditions be held invalid or unenforceable, that portion shall be construed consistent with applicable law, and the remaining portions shall remain in full force and effect.
+
+                If you have any questions about the Terms and Conditions or the practices of peacetoken.com, please feel free to e-mail us at: support@peacetoken.com .
+                <!-- Вставьте полный текст Terms and Conditions здесь -->
+            </p>
+        </div>
+    </div>
+
+<script>
+    // Получаем элементы DOM
+    const modal = document.getElementById('termsModal');
+    const openButton = document.getElementById('Terms and Conditions');
+    const closeButton = document.querySelector('.close');
+
+    // Открываем модальное окно при нажатии на ссылку
+    openButton.addEventListener('click', (event) => {
+        event.preventDefault(); // Предотвращаем переход по ссылке
+        modal.style.display = 'flex';
+    });
+
+    // Закрываем модальное окно при нажатии на крестик
+    closeButton.addEventListener('click', () => {
+        modal.style.display = 'none';
+    });
+
+    // Закрываем модальное окно при клике вне его области
+    window.addEventListener('click', (event) => {
+        if (event.target === modal) {
+            modal.style.display = 'none';
+        }
+    });
+</script>
     <div class="social-icons" style="margin-top: 20px;">
         <a href="#" class="purple-icon" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
         <a href="#" class="purple-icon" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
