@@ -644,6 +644,33 @@
                 transform: translateY(0);
             }
         }
+        /* Общий контейнер для часов */
+        .doomsday-clock {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px; /* Расстояние между квадратиками */
+            margin-bottom: 40px; /* Отступ перед секцией About */
+        }
+
+        /* Стиль каждого квадратика */
+        .clock-box {
+            background: rgba(17, 17, 17, 0.8); /* Темный фон */
+            color: #ffffff; /* Белый текст */
+            font-size: 3rem;
+            font-weight: bold;
+            text-align: center;
+            width: 100px;
+            height: 100px;
+            line-height: 100px; /* Центрирование текста */
+            border-radius: 20px; /* Закругленные углы */
+            transition: transform 0.3s ease, box-shadow 0.3s ease; /* Плавная анимация */
+        }
+
+        /* Анимация при наведении */
+        .clock-box:hover {
+            transform: scale(1.1); /* Увеличение размера */
+        }
         /* Media Queries for Mobile and Tablet */
         @media (max-width: 768px) {
             body {
@@ -697,6 +724,10 @@
             .company-logo2 {
                 width: 70px; /* Уменьшенный размер для мобильных */
             }
+            .logo-container {
+                padding: 20px;
+                left: -48px;
+            }
             .logo2-container {
                 top: 80px;
                 left: 13px;
@@ -719,7 +750,7 @@
                 padding: 10px 0;
             }
             .social-icons a {
-                font-size: 1.2em;
+                font-size: 1.85em;
             }
             /* Adjust FAQ section for mobile */
             .faq-section h2 {
@@ -755,7 +786,7 @@
             }
             .logo-container {
                 padding: 20px;
-                left: -40px;
+                left: -45px;
             }
             .hero-section p {
                 font-size: 1em;
@@ -773,6 +804,9 @@
             .section h2 {
                 font-size: 1.8em;
             }
+            .social-icons a {
+                font-size: 1.85em;
+            }
             .faq-question {
                 font-size: 14px;
             }
@@ -784,6 +818,13 @@
             }
             .card h3 {
                 font-size: 1em;
+            }
+            .clock-box {
+                width: 80px;
+                height: 80px;
+                font-size: 2.4rem;
+                border-radius: 10px;
+                line-height: 80px;
             }
             .card p {
                 font-size: 12px;
@@ -832,6 +873,13 @@
         <a href="https://raydium.io/swap/?inputMint=Es9vMFrzaCERmJfrF4H2FYD4KCoNkY11McCe8BenwNYB&outputMint=6p6xgHyF7AeE6TZkSmFsko444wqoP15icUSqi2jfGiPN"  class="cta-button" id="cta-button">Get Started</a>
     </div>
 </section>
+<div class="doomsday-clock">
+    <div class="clock-box neon-text">23</div>
+    <div class="clock-separator neon-text">:</div>
+    <div class="clock-box neon-text">58</div>
+    <div class="clock-separator neon-text">:</div>
+    <div class="clock-box neon-text">31</div>
+</div>
 <div class="container">
     <section class="section token-info">
         <h2 class="neon-text" id="about-title">About $PEACE Token</h2>
