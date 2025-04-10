@@ -648,25 +648,25 @@
         .clock-box:hover {
             transform: scale(1.1); /* Увеличение размера */
         }
-        /* Контейнер для гифки */
+        /* Контейнер для видео */
         .gif-container {
             display: flex;
             justify-content: center;
             align-items: center;
-            margin-top: 40px; /* Отступ после секции About */
+            margin-top: 40px; /* Отступ после секции */
             top: -15px;
             position: relative;
             overflow: hidden; /* Защита от выделения */
         }
 
-        /* Стиль для гифки */
+        /* Стиль для видео */
         .protected-gif {
-            width: 30%; /* Ширина гифки (можно задать фиксированную ширину) */
+            width: 30%; /* Ширина видео (можно задать фиксированную ширину) */
             max-width: 600px; /* Максимальная ширина */
             height: auto; /* Автоматическая высота для сохранения пропорций */
-            pointer-events: none; /* Запрет взаимодействия (например, кликов) */
+            pointer-events: none; /* Запрет взаимодействия */
             user-select: none; /* Запрет выделения */
-            -webkit-user-drag: none; /* Запрет перетаскивания в браузерах на WebKit */
+            -webkit-user-drag: none; /* Запрет перетаскивания */
         }
 
         /* Защита от контекстного меню (правая кнопка мыши) */
@@ -845,7 +845,7 @@
                 border-radius: 20px;
                 line-height: 70px;
             }
-            
+
             .card p {
                 font-size: 12px;
             }
@@ -913,9 +913,11 @@
         </p>
         <p id="additional-description">In a world where conflict and division seem to be ever-present, every individual has the power to make a difference. The $PEACE Token symbolizes hope and unity. Every purchase contributes directly to initiatives that aim to end wars and foster global peace. With your support, we can take meaningful steps towards a brighter, more harmonious future.</p>
     </section>
-    <!-- Гифка -->
     <div class="gif-container">
-        <img src="utka.gif" alt="Peace Animation" class="protected-gif">
+        <video autoplay loop muted playsinline class="protected-gif">
+            <source src="utka.webm" type="video/webm">
+            Your browser does not support the video tag.
+        </video>
     </div>
     <section class="section distribution" id="distribution-section">
         <h2 class="neon-text" id="distribution-title">Distribution</h2>
@@ -1015,9 +1017,11 @@
             });
         </script>
     </section>
-    <!-- Гифка -->
     <div class="gif-container">
-        <img src="trava.gif" alt="Peaceful Grass Animation" class="protected-gif">
+        <video autoplay loop muted playsinline class="protected-gif">
+            <source src="trava.webm" type="video/webm">
+            Your browser does not support the video tag.
+        </video>
     </div>
     <div class="grid-background"></div>
     <script>
@@ -1080,9 +1084,11 @@
             </li>
         </ul>
     </section>
-    <!-- Гифка -->
     <div class="gif-container">
-        <img src="ogon.gif" alt="Peace Animation" class="protected-gif">
+        <video autoplay loop muted playsinline class="protected-gif">
+            <source src="ogon.webm" type="video/webm">
+            Your browser does not support the video tag.
+        </video>
     </div>
     <section class="section features">
         <h2 class="neon-text" id="features-title">Features</h2>
@@ -1122,18 +1128,22 @@
             </div>
         </div>
     </section>
-    <!-- Гифка -->
     <div class="gif-container">
-        <img src="jab.gif" alt="Peaceful Grass Animation" class="protected-gif">
+        <video autoplay loop muted playsinline class="protected-gif">
+            <source src="jab.webm" type="video/webm">
+            Your browser does not support the video tag.
+        </video>
     </div>
     <section class="section team">
         <h2 class="neon-text" id="team-title">Our Team</h2>
         <p id="team-description">The $PEACE Token project was founded by two friends, one from Russia and the other from Ukraine. They met during a cultural exchange program and quickly became close friends, sharing a common vision for a peaceful world. Despite political tensions and separation, they continued to communicate daily, dreaming of a future where people from all nations could live in harmony. Their friendship inspired them to create the $PEACE Token, a symbol of hope and unity in adversity. With your support, they aim to turn this dream into reality, bringing peace and prosperity to communities globally.</p>
         <p id="team-additional-description">We have a diverse and dedicated team of professionals passionate about peace. From blockchain developers to peace activists, each member brings unique skills and experiences. Together, we work tirelessly to ensure the $PEACE Token project achieves its full potential and makes a lasting impact on the world.</p>
     </section>
-    <!-- Гифка -->
     <div class="gif-container">
-        <img src="bik.gif" alt="Peaceful Grass Animation" class="protected-gif">
+        <video autoplay loop muted playsinline class="protected-gif">
+            <source src="bik.webm" type="video/webm">
+            Your browser does not support the video tag.
+        </video>
     </div>
     <section class="section faq-section">
         <h2 class="neon-text" id="faq-title">Frequently Asked Questions</h2>
@@ -1554,13 +1564,13 @@
     }
     // Отключение контекстного меню (правая кнопка мыши)
     document.addEventListener('contextmenu', (event) => {
-        const gif = document.querySelector('.protected-gif');
-        if (event.target === gif || event.target.closest('.gif-container')) {
+        const video = event.target.closest('.protected-gif');
+        if (video) {
             event.preventDefault(); // Блокируем контекстное меню
         }
     });
 
-    // Отключение горячих клавиш для сохранения изображения
+    // Отключение горячих клавиш для сохранения видео
     document.addEventListener('keydown', (event) => {
         if (event.ctrlKey && (event.key === 's' || event.key === 'S')) {
             event.preventDefault(); // Блокируем Ctrl+S
