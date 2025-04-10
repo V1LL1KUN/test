@@ -1659,7 +1659,7 @@
     }
     document.addEventListener("DOMContentLoaded", () => {
         // Находим все секции, которые должны анимироваться
-        const sections = document.querySelectorAll('.section, .token-info, .distribution, .features, .team, .faq-section');
+        const sections = document.querySelectorAll('.section');
 
         // Создаем Intersection Observer
         const observer = new IntersectionObserver((entries) => {
@@ -1667,19 +1667,17 @@
                 if (entry.isIntersecting) {
                     // Добавляем класс 'visible', если секция видна
                     entry.target.classList.add('visible');
-                    // Прекращаем наблюдение за секцией после активации
-                    observer.unobserve(entry.target);
+                    observer.unobserve(entry.target); // Прекращаем наблюдение
                 }
             });
         }, {
-            threshold: 0.2 // Триггер, когда 20% секции видно
+            threshold: 0.2 // Анимация начинается, когда 20% секции видно
         });
 
-        // Начинаем наблюдать за каждой секцией
-        sections.forEach(section => {
-            observer.observe(section);
-        });
+        // Наблюдаем за каждой секцией
+        sections.forEach(section => observer.observe(section));
     });
+
     document.querySelectorAll('.faq-question').forEach(question => {
         question.addEventListener('click', () => {
             const currentAnswer = question.nextElementSibling;
