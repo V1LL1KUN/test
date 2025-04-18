@@ -176,7 +176,8 @@
         .distribution,
         .features,
         .team,
-        .faq-section {
+        .faq-section,
+        .roadmap{
             opacity: 0;
             transform: translateY(50px); /* Смещение вниз */
             transition: opacity 1s ease, transform 1s ease; /* Плавный переход */
@@ -188,7 +189,8 @@
         .distribution.visible,
         .features.visible,
         .team.visible,
-        .faq-section.visible {
+        .faq-section.visible,
+        .roadmap.visible{
             opacity: 1;
             transform: translateY(0); /* Возвращаем в исходное положение */
         }
@@ -206,14 +208,14 @@
         /* Мягкое свечение для частиц */
         .particle {
             position: absolute;
-            background-color: rgba(255, 255, 255, 0.0); /* Фиолетовый цвет */
+            background-color: rgba(255, 255, 255, 0.5); /* Фиолетовый цвет */
             border-radius: 50%; /* Круглая форма */
             animation: moveParticle 10s infinite ease-in-out; /* Анимация движения */
             pointer-events: none;
             box-shadow:
-                    0 0 10px rgba(255, 255, 255, 0.0),
-                    0 0 20px rgba(255, 255, 255, 0.0),
-                    0 0 30px rgba(255, 255, 255, 0.0);
+                    0 0 10px rgba(255, 255, 255, 0.5),
+                    0 0 20px rgba(255, 255, 255, 0.5),
+                    0 0 30px rgba(255, 255, 255, 0.5);
         }
         @keyframes floatBlob {
             0% {
@@ -247,7 +249,7 @@
             color: #ffffff;
             margin-bottom: 20px;
         }
-        .token-info, .distribution, .features, .team, .faq-section, .card{
+        .token-info, .distribution, .features, .team, .faq-section, .card, .roadmap{
             background-color: rgba(17, 17, 17, 0.1);
             padding: 30px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -632,7 +634,7 @@
 
         /* Стиль каждого квадратика */
         .clock-box {
-            background: rgba(17, 17, 17, 0.8); /* Темный фон */
+            background: rgba(17, 17, 17, 0.35); /* Темный фон */
             color: #ffffff; /* Белый текст */
             font-size: 3rem;
             font-weight: bold;
@@ -643,7 +645,6 @@
             border-radius: 20px; /* Закругленные углы */
             transition: transform 0.3s ease, box-shadow 0.3s ease; /* Плавная анимация */
         }
-
         /* Анимация при наведении */
         .clock-box:hover {
             transform: scale(1.1); /* Увеличение размера */
@@ -786,7 +787,7 @@
         }
         @media (max-width: 480px) {
             body {
-                font-size: 15px;
+                font-size: 14.5px;
             }
             header h1 {
                 font-size: 1.4em;
@@ -798,18 +799,21 @@
                 font-size: 2.1em;
             }
             .logo-container {
-                padding: 20px;
+                padding: 10px;
                 left: -50px;
             }
             .logo2-container {
-                top: 80px;
+                top: 90px;
                 left: 10px;
             }
             .hero-section p {
                 font-size: 1em;
             }
             .company-logo {
-                width: 145px; /* Уменьшенный размер для мобильных */
+                width: 175px; /* Уменьшенный размер для мобильных */
+            }
+            .company-logo2 {
+                width: 80px; /* Уменьшенный размер для мобильных */
             }
             .cta-button {
                 padding: 10px 20px;
