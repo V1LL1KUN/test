@@ -150,6 +150,45 @@
             width: 250px; /* Ширина логотипа */
             height: auto; /* Автоматическая высота для сохранения пропорций */
         }
+
+        /* Прямоугольник с адресом и кнопкой */
+        .section.contract-box {
+            display: flex; /* Размещение элементов в строку */
+            align-items: center; /* Выравнивание по центру */
+            justify-content: space-between; /* Расстояние между адресом и кнопкой */
+            background: rgba(17, 17, 17, 0.25); /* Темный фон */
+            padding: 15px 30px; /* Внутренние отступы */
+            border-radius: 50px; /* Гладкие края */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Тень */
+            width: 100%; /* Занимает всю ширину секции */
+            max-width: 600px; /* Максимальная ширина */
+            margin: 0 auto; /* Центрирование */
+        }
+
+        /* Адрес контракта */
+        .contract-address {
+            font-size: 1.3rem;
+            color: #ffffff;
+            white-space: nowrap; /* Запрет переноса текста */
+            overflow: hidden; /* Скрываем лишний текст */
+            text-overflow: ellipsis; /* Добавляем многоточие */
+            max-width: 70%; /* Ограничение ширины */
+            margin-right: 40px; /* Отступ между адресом и кнопкой */
+        }
+
+        /* Кнопка копирования */
+        .copy-button {
+            background: none;
+            border: none;
+            color: #ffffff;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: transform 0.3s ease; /* Анимация при наведении */
+        }
+
+        .copy-button:hover {
+            transform: scale(1.2); /* Увеличение при наведении */
+        }
         .logo2-container {
             position: absolute; /* Логотип вне основного потока */
             top: 130px; /* Отступ сверху */
@@ -425,7 +464,7 @@
             bottom: 20px;
             left: 50%;
             transform: translateX(-50%);
-            background-color: rgba(17, 17, 17, 0.1);
+            background-color: rgba(17, 17, 17, 0.6);
             color: #ffffff;
             padding: 10px 20px;
             border-radius: 20px;
@@ -791,62 +830,81 @@
             body {
                 font-size: 14.5px;
             }
+
             header h1 {
                 font-size: 1.4em;
             }
+
             header p {
                 font-size: 0.9em;
             }
+
             .hero-section h1 {
                 font-size: 2.1em;
             }
+
             .logo-container {
                 padding: 10px;
                 left: -50px;
             }
+
             .logo2-container {
                 top: 90px;
                 left: 10px;
             }
+
             .hero-section p {
                 font-size: 1em;
             }
+
             .company-logo {
                 width: 175px; /* Уменьшенный размер для мобильных */
             }
+
             .company-logo2 {
                 width: 80px; /* Уменьшенный размер для мобильных */
             }
+
             .cta-button {
                 padding: 10px 20px;
                 font-size: 12px;
             }
+
             .section {
                 padding: 15px;
             }
+
             .section h2 {
                 font-size: 1.8em;
             }
+
             .social-icons a {
                 font-size: 1.85em;
             }
+
             .faq-question {
                 font-size: 16px;
             }
+
             .faq-answer {
             }
+
             .card {
                 padding: 10px;
             }
-            .card i{
+
+            .card i {
                 font-size: 4em;
             }
+
             .card h3 {
                 font-size: 1em;
             }
+
             .protected-gif {
                 width: 50%; /* Ширина гифки (можно задать фиксированную ширину) */
             }
+
             .clock-box {
                 width: 75px;
                 height: 75px;
@@ -858,10 +916,51 @@
             .card p {
                 font-size: 12px;
             }
+
+            /* Прямоугольник с адресом и кнопкой */
+            .section.contract-box {
+                display: flex; /* Размещение элементов в строку */
+                align-items: center; /* Выравнивание по центру */
+                justify-content: space-between; /* Расстояние между адресом и кнопкой */
+                background: rgba(17, 17, 17, 0.25); /* Темный фон */
+                padding: 20px 10px; /* Внутренние отступы */
+                border-radius: 50px; /* Гладкие края */
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Тень */
+                width: 100%; /* Занимает всю ширину секции */
+                max-width: 400px; /* Максимальная ширина */
+                margin: 0 auto; /* Центрирование */
+            }
+
+            /* Адрес контракта */
+            .contract-address {
+                font-size: 0.9rem;
+                color: #ffffff;
+                white-space: nowrap; /* Запрет переноса текста */
+                overflow: hidden; /* Скрываем лишний текст */
+                text-overflow: ellipsis; /* Добавляем многоточие */
+                max-width: 70%; /* Ограничение ширины */
+                margin-right: 1px; /* Отступ между адресом и кнопкой */
+            }
+
+            /* Кнопка копирования */
+            .copy-button {
+                background: none;
+                border: none;
+                color: #ffffff;
+                font-size: 1.2rem;
+                cursor: pointer;
+                transition: transform 0.3s ease; /* Анимация при наведении */
+            }
+
+            .copy-button:hover {
+                transform: scale(1.2); /* Увеличение при наведении */
+            }
+
             .language-switcher .dropdown {
                 left: -4.5px;
                 padding: 5px;
             }
+
             .language-switcher {
                 position: absolute;
                 top: 10px;
@@ -871,6 +970,7 @@
                 align-items: flex-end;
                 cursor: pointer;
             }
+
             @keyframes fadeIn {
                 from {
                     opacity: 0;
@@ -888,6 +988,7 @@
                 margin: 0; /* Убираем отступы по умолчанию */
                 padding: 0; /* Убираем внутренние отступы */
             }
+        }
     </style>
 </head>
 <body>
@@ -917,6 +1018,20 @@
     <div class="clock-box neon-text">58</div>
     <div class="clock-separator neon-text">:</div>
     <div class="clock-box neon-text">31</div>
+</div>
+<!-- Секция с прямоугольником -->
+<section class="section contract-box">
+    <div class="contract-box">
+        <span class="contract-address" id="full-contract-address">orgdydMrCc6nXVpopDU86WBmkcNbRZJeXH8bcwqo1tp</span>
+        <button class="copy-button" id="copy-button">
+            <i class="fas fa-copy"></i> <!-- Иконка копирования -->
+        </button>
+    </div>
+</section>
+
+<!-- Уведомление о копировании -->
+<div id="notification">
+    Contract address copied to clipboard✅
 </div>
 <div class="container">
     <section class="section token-info">
@@ -1336,7 +1451,6 @@
         <a href="#" class="purple-icon" aria-label="Telegram"><i class="fab fa-telegram"></i></a>
     </div>
 </footer>
-<div id="notification"><i class="fas fa-check-circle"></i> Text copied!</div>
 <script>
     const translations = {
         en: {
@@ -1685,6 +1799,23 @@
 
         // Наблюдаем за каждой секцией
         sections.forEach(section => observer.observe(section));
+
+        const copyButton = document.getElementById('copy-button');
+        const fullContractAddress = document.getElementById('full-contract-address');
+        const notification = document.getElementById('notification');
+
+        // Функция для копирования текста
+        copyButton.addEventListener('click', () => {
+            navigator.clipboard.writeText(fullContractAddress.textContent).then(() => {
+                // Показываем уведомление
+                notification.style.display = 'block';
+                setTimeout(() => {
+                    notification.style.display = 'none'; // Скрываем уведомление через 3 секунды
+                }, 3000);
+            }).catch(err => {
+                console.error('Failed to copy text: ', err);
+            });
+        });
     });
 
     document.querySelectorAll('.faq-question').forEach(question => {
@@ -1706,6 +1837,25 @@
         item.style.margin = '0 10px';
         item.style.padding = '5px';
         item.style.transition = 'background-color 0.3s ease';
+    });
+    document.addEventListener("DOMContentLoaded", () => {
+        const copyButton = document.getElementById('copy-button');
+        const fullContractAddress = document.getElementById('full-contract-address');
+        const notification = document.getElementById('notification');
+
+        // Функция для копирования текста
+        copyButton.addEventListener('click', () => {
+            // Копируем текст в буфер обмена
+            navigator.clipboard.writeText(fullContractAddress.textContent).then(() => {
+                // Показываем уведомление
+                notification.style.display = 'block';
+                setTimeout(() => {
+                    notification.style.display = 'none'; // Скрываем уведомление через 3 секунды
+                }, 3000);
+            }).catch(err => {
+                console.error('Failed to copy text: ', err);
+            });
+        });
     });
     // Hover effect for social media icons
     document.querySelectorAll('.social-icons a').forEach(item => {
