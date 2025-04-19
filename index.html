@@ -917,46 +917,20 @@
                 font-size: 12px;
             }
 
-            /* Прямоугольник с адресом и кнопкой */
-            .section.contract-box {
-                display: flex; /* Размещение элементов в строку */
-                align-items: center; /* Выравнивание по центру */
-                justify-content: space-between; /* Расстояние между адресом и кнопкой */
-                background: rgba(17, 17, 17, 0.25); /* Темный фон */
-                padding: 20px 10px; /* Внутренние отступы */
-                border-radius: 50px; /* Гладкие края */
-                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Тень */
-                width: 100%; /* Занимает всю ширину секции */
-                max-width: 320px; /* Максимальная ширина */
-                margin: 0 auto; /* Центрирование */
+            .contract-box {
+                padding: 15px 5px; /* Уменьшаем внутренние отступы */
+                max-width: 90%; /* Увеличиваем максимальную ширину */
             }
 
-            /* Адрес контракта */
             .contract-address {
-                font-size: 1rem;
-                color: #ffffff;
-                white-space: nowrap; /* Запрет переноса текста */
-                overflow: hidden; /* Скрываем лишний текст */
-                text-overflow: ellipsis;
-                padding: 20px;/* Добавляем многоточие */
-                max-width: 70%; /* Ограничение ширины */
-                margin-right: 10px; /* Отступ между адресом и кнопкой */
+                font-size: 0.65rem; /* Уменьшаем размер шрифта */
+                max-width: 80%; /* Увеличиваем максимальную ширину */
+                margin-right: 5px; /* Уменьшаем отступ */
             }
 
-            /* Кнопка копирования */
             .copy-button {
-                background: none;
-                border: none;
-                color: #ffffff;
-                font-size: 1.2rem;
-                cursor: pointer;
-                transition: transform 0.3s ease; /* Анимация при наведении */
+                font-size: 1rem; /* Уменьшаем размер шрифта */
             }
-
-            .copy-button:hover {
-                transform: scale(1.2); /* Увеличение при наведении */
-            }
-
             .language-switcher .dropdown {
                 left: -4.5px;
                 padding: 5px;
